@@ -125,3 +125,1515 @@ Processing by StaticPagesController#home as HTML
 Completed 200 OK in 59ms (Views: 56.3ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20180615012104)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "failed_attempts" integer DEFAULT 0 NOT NULL, "unlock_token" varchar, "locked_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20180615012104_devise_create_users.rb:5
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20180615012104_devise_create_users.rb:39
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20180615012104_devise_create_users.rb:40
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  ↳ db/migrate/20180615012104_devise_create_users.rb:41
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_unlock_token" ON "users" ("unlock_token")[0m
+  ↳ db/migrate/20180615012104_devise_create_users.rb:42
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180615012104"]]
+  ↳ bin/rails:9
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-06-15 01:28:41.077040"], ["updated_at", "2018-06-15 01:28:41.077040"]]
+  ↳ bin/rails:9
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2018-06-15 10:29:41 +0900
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_head_setting.html.erb (831.5ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 898ms (Views: 876.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/usres_signup" for 127.0.0.1 at 2018-06-15 10:29:51 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/usres_signup"):
+  
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:135:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:30:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:20:in `catch'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:20:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:38:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:26:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:28:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:26:in `call'
+vendor/bundle/ruby/2.5.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/request_id.rb:27:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/method_override.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/runtime.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/executor.rb:14:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/static.rb:127:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/sendfile.rb:111:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/engine.rb:524:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/configuration.rb:225:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:632:in `handle_request'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:446:in `process_client'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:306:in `block in run'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/usres/signup" for 127.0.0.1 at 2018-06-15 10:29:55 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/usres/signup"):
+  
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:135:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:30:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:20:in `catch'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:20:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:38:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:26:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:28:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:26:in `call'
+vendor/bundle/ruby/2.5.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/request_id.rb:27:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/method_override.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/runtime.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/executor.rb:14:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/static.rb:127:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/sendfile.rb:111:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/engine.rb:524:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/configuration.rb:225:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:632:in `handle_request'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:446:in `process_client'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:306:in `block in run'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/usres/sign_up" for 127.0.0.1 at 2018-06-15 10:29:59 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/usres/sign_up"):
+  
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:135:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:30:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:20:in `catch'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:20:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:38:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:26:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:28:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:26:in `call'
+vendor/bundle/ruby/2.5.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/request_id.rb:27:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/method_override.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/runtime.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/executor.rb:14:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/static.rb:127:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/sendfile.rb:111:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/engine.rb:524:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/configuration.rb:225:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:632:in `handle_request'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:446:in `process_client'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:306:in `block in run'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 10:30:24 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering vendor/bundle/ruby/2.5.0/gems/devise-4.4.3/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/2.5.0/gems/devise-4.4.3/app/views/devise/shared/_links.html.erb (3.4ms)
+  Rendered vendor/bundle/ruby/2.5.0/gems/devise-4.4.3/app/views/devise/registrations/new.html.erb within layouts/application (85.7ms)
+  Rendered layouts/_head_setting.html.erb (94.9ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 327ms (Views: 266.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 10:42:35 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering vendor/bundle/ruby/2.5.0/gems/devise-4.4.3/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/2.5.0/gems/devise-4.4.3/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered vendor/bundle/ruby/2.5.0/gems/devise-4.4.3/app/views/devise/registrations/new.html.erb within layouts/application (8.7ms)
+  Rendered layouts/_head_setting.html.erb (29.9ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 66ms (Views: 64.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 10:44:38 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering vendor/bundle/ruby/2.5.0/gems/devise-4.4.3/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered vendor/bundle/ruby/2.5.0/gems/devise-4.4.3/app/views/devise/shared/_links.html.erb (1.8ms)
+  Rendered vendor/bundle/ruby/2.5.0/gems/devise-4.4.3/app/views/devise/registrations/new.html.erb within layouts/application (11.7ms)
+  Rendered layouts/_head_setting.html.erb (27.4ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 72ms (Views: 70.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 10:44:49 +0900
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (4.6ms)
+  Rendered users/registrations/new.html.erb within layouts/application (40.6ms)
+  Rendered layouts/_head_setting.html.erb (353.9ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 620ms (Views: 553.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 10:44:55 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (1.5ms)
+  Rendered users/registrations/new.html.erb within layouts/application (8.1ms)
+  Rendered layouts/_head_setting.html.erb (21.0ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 50ms (Views: 49.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 10:49:46 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (10.1ms)
+  Rendered users/registrations/new.html.erb within layouts/application (25.7ms)
+  Rendered layouts/_head_setting.html.erb (39.3ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 143ms (Views: 130.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 10:49:52 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (3.0ms)
+  Rendered users/registrations/new.html.erb within layouts/application (8.1ms)
+  Rendered layouts/_head_setting.html.erb (21.5ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 51ms (Views: 49.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 10:52:09 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (8.7ms)
+  Rendered users/registrations/new.html.erb within layouts/application (63.6ms)
+  Rendered layouts/_head_setting.html.erb (77.1ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 435ms (Views: 299.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 10:52:24 +0900
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (4.4ms)
+  Rendered users/registrations/new.html.erb within layouts/application (912.5ms)
+  Rendered layouts/_head_setting.html.erb (462.7ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1516ms (Views: 1463.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-15 10:57:15 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (26.1ms)
+  Rendered users/sessions/new.html.erb within layouts/application (54.6ms)
+  Rendered layouts/_head_setting.html.erb (42.5ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (2.1ms)
+Completed 200 OK in 176ms (Views: 159.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 10:57:26 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (3.1ms)
+  Rendered users/registrations/new.html.erb within layouts/application (7.9ms)
+  Rendered layouts/_head_setting.html.erb (21.2ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 54ms (Views: 52.8ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddNameToUsers (20180615022519)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "name" varchar[0m
+  ↳ db/migrate/20180615022519_add_name_to_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180615022519"]]
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 11:34:26 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (3.8ms)
+  Rendered users/registrations/new.html.erb within layouts/application (9.9ms)
+  Rendered layouts/_head_setting.html.erb (37.6ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 99ms (Views: 72.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 11:35:08 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (2.5ms)
+  Rendered users/registrations/new.html.erb within layouts/application (11.3ms)
+  Rendered layouts/_head_setting.html.erb (27.4ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 61ms (Views: 59.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 11:35:16 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (7.6ms)
+  Rendered users/registrations/new.html.erb within layouts/application (14.8ms)
+  Rendered layouts/_head_setting.html.erb (47.0ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 96ms (Views: 94.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 11:35:19 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (3.9ms)
+  Rendered users/registrations/new.html.erb within layouts/application (10.9ms)
+  Rendered layouts/_head_setting.html.erb (21.5ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 56ms (Views: 55.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 11:35:53 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (44.3ms)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 3, expected 1..2)):
+     5: 
+     6:   <div class="field">
+     7:     <%= f.label :name %><br />
+     8:     <%= f.email_field :name, "名前", autofocus: true, autocomplete: "name" %>
+     9:   </div>
+    10: 
+    11:   <div class="field">
+  
+app/views/users/registrations/new.html.erb:8:in `block in _app_views_users_registrations_new_html_erb__2339641380652072810_70222182007400'
+app/views/users/registrations/new.html.erb:3:in `_app_views_users_registrations_new_html_erb__2339641380652072810_70222182007400'
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 11:36:17 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (4.1ms)
+  Rendered users/registrations/new.html.erb within layouts/application (10.7ms)
+  Rendered layouts/_head_setting.html.erb (19.0ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 66ms (Views: 64.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-15 11:38:15 +0900
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (206.8ms)
+Completed 500 Internal Server Error in 221ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `sign_in?' for #<#<Class:0x00007fbbc1a24188>:0x00007fbbc19ef8c0>):
+    1: <% if sign_in? %>
+    2: <%= @user.name %>
+    3: <% end %>
+  
+app/views/static_pages/home.html.erb:1:in `_app_views_static_pages_home_html_erb___3298782259743712204_70222175627400'
+Started GET "/" for 127.0.0.1 at 2018-06-15 11:38:29 +0900
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (215.8ms)
+Completed 500 Internal Server Error in 228ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `logged_in?' for #<#<Class:0x00007fbbc1a24188>:0x00007fbbc1ce66f0>):
+    1: <% if logged_in? %>
+    2: <%= @user.name %>
+    3: <% end %>
+  
+app/views/static_pages/home.html.erb:1:in `_app_views_static_pages_home_html_erb___3298782259743712204_70222193574620'
+Started GET "/" for 127.0.0.1 at 2018-06-15 11:39:05 +0900
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_head_setting.html.erb (32.7ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 93ms (Views: 89.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 11:39:19 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (3.9ms)
+  Rendered users/registrations/new.html.erb within layouts/application (13.7ms)
+  Rendered layouts/_head_setting.html.erb (15.9ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 54ms (Views: 52.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 11:41:27 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (5.2ms)
+  Rendered users/registrations/new.html.erb within layouts/application (13.8ms)
+  Rendered layouts/_head_setting.html.erb (33.4ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 81ms (Views: 79.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 11:42:27 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (485.3ms)
+Completed 500 Internal Server Error in 499ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name_field' for #<ActionView::Helpers::FormBuilder:0x00007fbbc0132468>):
+     5: 
+     6:   <div class="field">
+     7:     <%= f.label :name, "名前" %><br />
+     8:     <%= f.name_field :name, autofocus: true, autocomplete: "name" %>
+     9:   </div>
+    10: 
+    11:   <div class="field">
+  
+app/views/users/registrations/new.html.erb:8:in `block in _app_views_users_registrations_new_html_erb__2339641380652072810_70222176966820'
+app/views/users/registrations/new.html.erb:3:in `_app_views_users_registrations_new_html_erb__2339641380652072810_70222176966820'
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 11:42:54 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/registrations/new.html.erb within layouts/application (621.0ms)
+Completed 500 Internal Server Error in 641ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name_field' for #<ActionView::Helpers::FormBuilder:0x00007fbbc4c1bbf0>):
+     5: 
+     6:   <div class="field">
+     7:     <%= f.label :name, "名前" %><br />
+     8:     <%= f.name_field :name, autofocus: true %>
+     9:   </div>
+    10: 
+    11:   <div class="field">
+  
+app/views/users/registrations/new.html.erb:8:in `block in _app_views_users_registrations_new_html_erb__2339641380652072810_70222225940500'
+app/views/users/registrations/new.html.erb:3:in `_app_views_users_registrations_new_html_erb__2339641380652072810_70222225940500'
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 11:43:17 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (4.3ms)
+  Rendered users/registrations/new.html.erb within layouts/application (12.5ms)
+  Rendered layouts/_head_setting.html.erb (25.6ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 71ms (Views: 69.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-06-15 11:43:26 +0900
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9kgSrG2qgGJbGA623ioV3ug/IElIVVN0gK14Y49MJ7nDzyhWAN5nwhA5dStmxu7OEbG5vqOJ2cwaL+PgdasPNA==", "user"=>{"name"=>"ysk", "email"=>"yohsuke.suita@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"<span class=\"translation_missing\" title=\"translation missing: ja.users.registrations.new.sign_up\">Sign Up</span>"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yohsuke.suita@gmail.com"], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "yohsuke.suita@gmail.com"], ["encrypted_password", "$2a$11$KNNPKIwDiK0QQK8ouX50QuFsvkheW9s2MqJkigAUaOc932uFXSgpK"], ["confirmation_token", "cKSRiy9Vy6xZKLEUK-op"], ["confirmation_sent_at", "2018-06-15 02:43:26.365713"], ["created_at", "2018-06-15 02:43:26.365458"], ["updated_at", "2018-06-15 02:43:26.365458"], ["name", "ysk"]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  Rendering users/mailer/confirmation_instructions.html.erb
+  Rendered users/mailer/confirmation_instructions.html.erb (7.1ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 1622.1ms
+Sent mail to yohsuke.suita@gmail.com (48.9ms)
+Date: Fri, 15 Jun 2018 11:43:28 +0900
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: yohsuke.suita@gmail.com
+Message-ID: <5b2327d07d349_e2633fdde059b5ac937eb@mba-2.local.mail>
+Subject: =?UTF-8?Q?=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=AE=E6=9C=89=E5=8A=B9=E5=8C=96=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p><span class="translation_missing" title="translation missing: ja.users.mailer.confirmation_instructions.greeting, recipient: yohsuke.suita@gmail.com">Greeting</span></p>
+
+<p><span class="translation_missing" title="translation missing: ja.users.mailer.confirmation_instructions.instruction">Instruction</span></p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=cKSRiy9Vy6xZKLEUK-op"><span class="translation_missing" title="translation missing: ja.users.mailer.confirmation_instructions.action">Action</span></a></p>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 2431ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-15 11:43:28 +0900
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_head_setting.html.erb (63.9ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (2.2ms)
+Completed 200 OK in 114ms (Views: 109.9ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yohsuke.suita@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/" for 127.0.0.1 at 2018-06-15 11:57:20 +0900
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (2.4ms)
+  Rendered layouts/_head_setting.html.erb (53.0ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 91ms (Views: 83.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 11:57:27 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (7.1ms)
+  Rendered users/registrations/new.html.erb within layouts/application (24.7ms)
+  Rendered layouts/_head_setting.html.erb (49.8ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 110ms (Views: 108.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-15 11:57:28 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (3.3ms)
+  Rendered users/sessions/new.html.erb within layouts/application (8.5ms)
+  Rendered layouts/_head_setting.html.erb (23.4ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 53ms (Views: 50.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-06-15 11:57:36 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2DhXE84Va6JRUvPoS4BzYR47LSeWYeBl7N6Em7s+n2Htv23po2GMAhpziHXzbIhx57W00H29at12XB8YQdm37A==", "user"=>{"email"=>"yohsuke.suita@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"<span class=\"translation_missing\" title=\"translation missing: ja.users.sessions.new.sign_in\">Sign In</span>"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "yohsuke.suita@gmail.com"], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 268ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-15 11:57:37 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (5.3ms)
+  Rendered users/sessions/new.html.erb within layouts/application (13.4ms)
+  Rendered layouts/_head_setting.html.erb (28.4ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (21.1ms)
+Completed 200 OK in 110ms (Views: 108.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2018-06-15 12:01:09 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/users/1"):
+  
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:135:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:30:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:20:in `catch'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:20:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:38:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:26:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:28:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:26:in `call'
+vendor/bundle/ruby/2.5.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/request_id.rb:27:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/method_override.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/runtime.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/executor.rb:14:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/static.rb:127:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/sendfile.rb:111:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/engine.rb:524:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/configuration.rb:225:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:632:in `handle_request'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:446:in `process_client'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:306:in `block in run'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/1" for 127.0.0.1 at 2018-06-15 12:03:37 +0900
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+vendor/bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/active_support.rb:53:in `block in load_missing_constant'
+vendor/bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/active_support.rb:8:in `without_bootsnap_cache'
+vendor/bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/active_support.rb:53:in `rescue in load_missing_constant'
+vendor/bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/active_support.rb:42:in `load_missing_constant'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/inflector/methods.rb:283:in `const_get'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/inflector/methods.rb:283:in `block in constantize'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/inflector/methods.rb:281:in `each'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/inflector/methods.rb:281:in `inject'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/inflector/methods.rb:281:in `constantize'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/http/request.rb:81:in `controller_class'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/routing/route_set.rb:46:in `controller'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/routing/route_set.rb:32:in `serve'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/journey/router.rb:52:in `block in serve'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/journey/router.rb:35:in `each'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/journey/router.rb:35:in `serve'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/routing/route_set.rb:840:in `call'
+vendor/bundle/ruby/2.5.0/gems/warden-1.2.7/lib/warden/manager.rb:36:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `catch'
+vendor/bundle/ruby/2.5.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/tempfile_reaper.rb:15:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/etag.rb:25:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/conditional_get.rb:25:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/head.rb:12:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/session/abstract/id.rb:232:in `context'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/session/abstract/id.rb:226:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/cookies.rb:670:in `call'
+vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/migration.rb:559:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:98:in `run_callbacks'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/executor.rb:14:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:135:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:30:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:20:in `catch'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:20:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:38:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:26:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:28:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:26:in `call'
+vendor/bundle/ruby/2.5.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/request_id.rb:27:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/method_override.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/runtime.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/executor.rb:14:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/static.rb:127:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/sendfile.rb:111:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/engine.rb:524:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/configuration.rb:225:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:632:in `handle_request'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:446:in `process_client'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:306:in `block in run'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[36mUser Exists (2.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yohsuke.suita@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yohsuke.suita@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 12:13:28 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (3.5ms)
+  Rendered users/registrations/new.html.erb within layouts/application (22.5ms)
+  Rendered layouts/_head_setting.html.erb (62.1ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 184ms (Views: 117.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-15 12:13:29 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (6.1ms)
+  Rendered users/sessions/new.html.erb within layouts/application (21.9ms)
+  Rendered layouts/_head_setting.html.erb (44.1ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 128ms (Views: 124.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-06-15 12:13:44 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s6kYTq3g79KQMhbBiAiY2aak1sFxdCRGRIA8kIPTLlGGLiK0wJQIctsTbVww5GPJXypPNpqorv7eAqcTeTQG3A==", "user"=>{"email"=>"yohsuke.suita@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"<span class=\"translation_missing\" title=\"translation missing: ja.users.sessions.new.sign_in\">Sign In</span>"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "yohsuke.suita@gmail.com"], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 162ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-15 12:13:44 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (4.0ms)
+  Rendered users/sessions/new.html.erb within layouts/application (9.5ms)
+  Rendered layouts/_head_setting.html.erb (31.0ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 63ms (Views: 62.0ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yohsuke.suita@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (2.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-15 12:20:50 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (2.7ms)
+  Rendered users/sessions/new.html.erb within layouts/application (8.1ms)
+  Rendered layouts/_head_setting.html.erb (44.0ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 77ms (Views: 75.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 12:20:54 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (4.3ms)
+  Rendered users/registrations/new.html.erb within layouts/application (26.2ms)
+  Rendered layouts/_head_setting.html.erb (42.3ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 103ms (Views: 97.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-06-15 12:21:02 +0900
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"11oluSjSMIPuYn6IYBbwTU820/+thmqAh1Rv7JSPC2zi3R9DRabXI6VDBRXY+gtdtrhKCEZa4Dgd1vRvbmgj4Q==", "user"=>{"name"=>"ysk", "email"=>"yohsuke.suita@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"<span class=\"translation_missing\" title=\"translation missing: ja.users.registrations.new.sign_up\">Sign Up</span>"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yohsuke.suita@gmail.com"], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "yohsuke.suita@gmail.com"], ["encrypted_password", "$2a$11$ASpsWuQNYZYY51ujeaS/kuarhU1Nu5KhU5oW.pw5nju4qxRDKohgm"], ["confirmation_token", "huPakB93LL_XCXWsUQWZ"], ["confirmation_sent_at", "2018-06-15 03:21:02.773044"], ["created_at", "2018-06-15 03:21:02.772867"], ["updated_at", "2018-06-15 03:21:02.772867"], ["name", "ysk"]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  Rendering users/mailer/confirmation_instructions.html.erb
+  Rendered users/mailer/confirmation_instructions.html.erb (8.5ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 114.7ms
+Sent mail to yohsuke.suita@gmail.com (10.1ms)
+Date: Fri, 15 Jun 2018 12:21:02 +0900
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: yohsuke.suita@gmail.com
+Message-ID: <5b23309ef0fcd_e2633fdde059b3cc938f7@mba-2.local.mail>
+Subject: =?UTF-8?Q?=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=AE=E6=9C=89=E5=8A=B9=E5=8C=96=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p><span class="translation_missing" title="translation missing: ja.users.mailer.confirmation_instructions.greeting, recipient: yohsuke.suita@gmail.com">Greeting</span></p>
+
+<p><span class="translation_missing" title="translation missing: ja.users.mailer.confirmation_instructions.instruction">Instruction</span></p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=huPakB93LL_XCXWsUQWZ"><span class="translation_missing" title="translation missing: ja.users.mailer.confirmation_instructions.action">Action</span></a></p>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 436ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-15 12:21:03 +0900
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_head_setting.html.erb (25.8ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 61ms (Views: 55.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-15 12:25:30 +0900
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (7.2ms)
+  Rendered layouts/_head_setting.html.erb (51.8ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 95ms (Views: 85.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 12:25:35 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (4.9ms)
+  Rendered users/registrations/new.html.erb within layouts/application (21.6ms)
+  Rendered layouts/_head_setting.html.erb (27.1ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 81ms (Views: 73.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-06-15 12:25:44 +0900
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UC4vhbZENbtWVC+HaoCjGpvrHfuyuxpoJkPcIp/ErNBlqRV/2zDSGx11VBrSbFgKYmWEDFlnkNC8wUehZSOEXQ==", "user"=>{"name"=>"ysk", "email"=>"yohsuke.suita@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"<span class=\"translation_missing\" title=\"translation missing: ja.users.registrations.new.sign_up\">Sign Up</span>"}
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yohsuke.suita@gmail.com"], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (9.9ms)
+  Rendered users/registrations/new.html.erb within layouts/application (19.0ms)
+  Rendered layouts/_head_setting.html.erb (30.0ms)
+  Rendered layouts/_header.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 270ms (Views: 70.0ms | ActiveRecord: 1.2ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "failed_attempts" integer DEFAULT 0 NOT NULL, "unlock_token" varchar, "locked_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_unlock_token" ON "users" ("unlock_token")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180615022519)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180615012104);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-06-15 03:27:50.526652"], ["updated_at", "2018-06-15 03:27:50.526652"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "failed_attempts" integer DEFAULT 0 NOT NULL, "unlock_token" varchar, "locked_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (117.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_unlock_token" ON "users" ("unlock_token")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180615022519)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180615012104);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-06-15 03:27:50.724723"], ["updated_at", "2018-06-15 03:27:50.724723"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.9ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2018-06-15 03:27:50.733165"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 12:28:14 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (3.5ms)
+  Rendered users/registrations/new.html.erb within layouts/application (15.2ms)
+  Rendered layouts/_head_setting.html.erb (32.8ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (13.0ms)
+Completed 200 OK in 161ms (Views: 130.1ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-06-15 12:28:22 +0900
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nvRegHNvRAejRzKPWA4U7OciOMjdcVnWnr3VzuMzFQKrc2R6Hhujp+hmSRLg4u/8HqyhPzat024EP05NGdQ9jw==", "user"=>{"name"=>"ysk", "email"=>"yohsuke.suita@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"<span class=\"translation_missing\" title=\"translation missing: ja.users.registrations.new.sign_up\">Sign Up</span>"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yohsuke.suita@gmail.com"], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "yohsuke.suita@gmail.com"], ["encrypted_password", "$2a$11$h8Gitpyj6nvXSgIZwuV3tucqtnr.ZALzQiGEZM2Izvzx05ajQbxCG"], ["confirmation_token", "9YQ3K7hxcg-6JTrWY7sx"], ["confirmation_sent_at", "2018-06-15 03:28:22.194110"], ["created_at", "2018-06-15 03:28:22.193765"], ["updated_at", "2018-06-15 03:28:22.193765"], ["name", "ysk"]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  Rendering users/mailer/confirmation_instructions.html.erb
+  Rendered users/mailer/confirmation_instructions.html.erb (3.8ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 96.7ms
+Sent mail to yohsuke.suita@gmail.com (4.2ms)
+Date: Fri, 15 Jun 2018 12:28:22 +0900
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: yohsuke.suita@gmail.com
+Message-ID: <5b2332564ac66_e2633fdde059b64c939d7@mba-2.local.mail>
+Subject: =?UTF-8?Q?=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=AE=E6=9C=89=E5=8A=B9=E5=8C=96=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p><span class="translation_missing" title="translation missing: ja.users.mailer.confirmation_instructions.greeting, recipient: yohsuke.suita@gmail.com">Greeting</span></p>
+
+<p><span class="translation_missing" title="translation missing: ja.users.mailer.confirmation_instructions.instruction">Instruction</span></p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=9YQ3K7hxcg-6JTrWY7sx"><span class="translation_missing" title="translation missing: ja.users.mailer.confirmation_instructions.action">Action</span></a></p>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 335ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-15 12:28:22 +0900
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_head_setting.html.erb (24.0ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 67ms (Views: 54.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/letter_opener" for 127.0.0.1 at 2018-06-15 12:29:50 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/letter_opener"):
+  
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:135:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:30:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:20:in `catch'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:20:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:38:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:26:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:28:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:26:in `call'
+vendor/bundle/ruby/2.5.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/request_id.rb:27:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/method_override.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/runtime.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/executor.rb:14:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/static.rb:127:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/sendfile.rb:111:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/engine.rb:524:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/configuration.rb:225:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:632:in `handle_request'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:446:in `process_client'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:306:in `block in run'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "failed_attempts" integer DEFAULT 0 NOT NULL, "unlock_token" varchar, "locked_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_unlock_token" ON "users" ("unlock_token")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180615022519)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180615012104);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-06-15 03:33:53.355601"], ["updated_at", "2018-06-15 03:33:53.355601"]]
+  ↳ db/schema.rb:13
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (17.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  ↳ db/schema.rb:15
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "failed_attempts" integer DEFAULT 0 NOT NULL, "unlock_token" varchar, "locked_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "name" varchar)[0m
+  ↳ db/schema.rb:15
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_unlock_token" ON "users" ("unlock_token")[0m
+  ↳ db/schema.rb:15
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ db/schema.rb:13
+  [1m[35m (8.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180615022519)[0m
+  ↳ db/schema.rb:13
+  [1m[35m (2.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180615012104);
+
+[0m
+  ↳ db/schema.rb:13
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ db/schema.rb:13
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-06-15 03:33:53.574801"], ["updated_at", "2018-06-15 03:33:53.574801"]]
+  ↳ db/schema.rb:13
+  [1m[35m (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ db/schema.rb:13
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2018-06-15 03:33:53.583744"], ["key", "environment"]]
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 12:34:05 +0900
+  
+NameError (uninitialized constant LetterOpenerWeb):
+  
+config/routes.rb:7:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 12:35:11 +0900
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (2.4ms)
+  Rendered users/registrations/new.html.erb within layouts/application (104.7ms)
+  Rendered layouts/_head_setting.html.erb (566.9ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 754ms (Views: 713.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-06-15 12:35:19 +0900
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jd5y8yF48mnprVytV2JvKd8ivRxZjDJTeik0MAQ+OYG4WUgJTAwVyaKMJzDvjpQ5Jqwk67JQuOvgq6+z/tkRDA==", "user"=>{"name"=>"ysk", "email"=>"yohsuke.suita@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"<span class=\"translation_missing\" title=\"translation missing: ja.users.registrations.new.sign_up\">Sign Up</span>"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yohsuke.suita@gmail.com"], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "confirmation_token", "confirmation_sent_at", "created_at", "updated_at", "name") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["email", "yohsuke.suita@gmail.com"], ["encrypted_password", "$2a$11$k4gu6aPN/vjtvM5QahMyf.I6NTcQ.i8HKiErti486V2XiAxqVAypC"], ["confirmation_token", "qGKJhrHicsq56psNBwm8"], ["confirmation_sent_at", "2018-06-15 03:35:20.007568"], ["created_at", "2018-06-15 03:35:20.007356"], ["updated_at", "2018-06-15 03:35:20.007356"], ["name", "ysk"]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (4.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  Rendering users/mailer/confirmation_instructions.html.erb
+  Rendered users/mailer/confirmation_instructions.html.erb (3.7ms)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 162.6ms
+Sent mail to yohsuke.suita@gmail.com (23.3ms)
+Date: Fri, 15 Jun 2018 12:35:20 +0900
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: yohsuke.suita@gmail.com
+Message-ID: <5b2333f88181e_e8573fc485cb8c143188e@mba-2.local.mail>
+Subject: =?UTF-8?Q?=E3=82=A2=E3=82=AB=E3=82=A6=E3=83=B3=E3=83=88=E3=81=AE=E6=9C=89=E5=8A=B9=E5=8C=96=E3=81=AB=E3=81=A4=E3=81=84=E3=81=A6?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p><span class="translation_missing" title="translation missing: ja.users.mailer.confirmation_instructions.greeting, recipient: yohsuke.suita@gmail.com">Greeting</span></p>
+
+<p><span class="translation_missing" title="translation missing: ja.users.mailer.confirmation_instructions.instruction">Instruction</span></p>
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=qGKJhrHicsq56psNBwm8"><span class="translation_missing" title="translation missing: ja.users.mailer.confirmation_instructions.action">Action</span></a></p>
+
+Redirected to http://localhost:3000/
+Completed 302 Found in 837ms (ActiveRecord: 5.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-15 12:35:20 +0900
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_head_setting.html.erb (37.9ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 111ms (Views: 105.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/letter_opener" for 127.0.0.1 at 2018-06-15 12:35:38 +0900
+Processing by LetterOpenerWeb::LettersController#index as HTML
+  Rendering vendor/bundle/ruby/2.5.0/gems/letter_opener_web-1.3.4/app/views/letter_opener_web/letters/index.html.erb within layouts/letter_opener_web/letters
+  Rendered vendor/bundle/ruby/2.5.0/gems/letter_opener_web-1.3.4/app/views/letter_opener_web/letters/index.html.erb within layouts/letter_opener_web/letters (2.6ms)
+Completed 200 OK in 86ms (Views: 77.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/letter_opener/1529033720_5343459_e9fd3bc/rich" for 127.0.0.1 at 2018-06-15 12:35:39 +0900
+Processing by LetterOpenerWeb::LettersController#show as HTML
+  Parameters: {"id"=>"1529033720_5343459_e9fd3bc", "style"=>"rich"}
+  Rendering html template
+  Rendered html template (0.1ms)
+Completed 200 OK in 8ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/confirmation?confirmation_token=qGKJhrHicsq56psNBwm8" for 127.0.0.1 at 2018-06-15 12:35:43 +0900
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"qGKJhrHicsq56psNBwm8"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["confirmation_token", "qGKJhrHicsq56psNBwm8"], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "confirmed_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["confirmed_at", "2018-06-15 03:35:43.411182"], ["updated_at", "2018-06-15 03:35:43.412354"], ["id", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 13ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-15 12:35:43 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (4.6ms)
+  Rendered users/sessions/new.html.erb within layouts/application (22.8ms)
+  Rendered layouts/_head_setting.html.erb (62.4ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 143ms (Views: 140.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-06-15 12:35:56 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Uhqbhs5tjRRrpGb0xwMI9SQ/hX80oVgDY8Ns7aIrF5FnnaF8oxlqtCCFHWl/7/Pl3bEciN990rv5QfduWMw/HA==", "user"=>{"email"=>"yohsuke.suita@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"<span class=\"translation_missing\" title=\"translation missing: ja.users.sessions.new.sign_in\">Sign In</span>"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "yohsuke.suita@gmail.com"], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2018-06-15 03:35:56.376491"], ["last_sign_in_at", "2018-06-15 03:35:56.376491"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2018-06-15 03:35:56.377593"], ["id", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 244ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-15 12:35:56 +0900
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/static_pages/home.html.erb:1
+  Rendered static_pages/home.html.erb within layouts/application (8.4ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <% if user_signed_in? %>
+    2: <%= @user.name %>
+    3: <% end %>
+  
+app/views/static_pages/home.html.erb:2:in `_app_views_static_pages_home_html_erb__3821107938284011800_70113344716000'
+Started GET "/" for 127.0.0.1 at 2018-06-15 12:36:43 +0900
+Processing by StaticPagesController#home as HTML
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant StaticPagesController::Uesr):
+  
+app/controllers/static_pages_controller.rb:3:in `home'
+Started GET "/" for 127.0.0.1 at 2018-06-15 12:37:05 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/static_pages_controller.rb:3
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/static_pages/home.html.erb:1
+  Rendered static_pages/home.html.erb within layouts/application (35.7ms)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <% if user_signed_in? %>
+    2: <%= @user.name %>
+    3: <% end %>
+  
+app/views/static_pages/home.html.erb:2:in `_app_views_static_pages_home_html_erb__3821107938284011800_70113326794240'
+Started GET "/" for 127.0.0.1 at 2018-06-15 12:37:50 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/static_pages_controller.rb:3
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/static_pages/home.html.erb:1
+  Rendered static_pages/home.html.erb within layouts/application (41.3ms)
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 1.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <% if user_signed_in? %>
+    2: <%= @user.name %>
+    3: <% end %>
+  
+app/views/static_pages/home.html.erb:2:in `_app_views_static_pages_home_html_erb__3821107938284011800_70113319169040'
+Started GET "/users/1" for 127.0.0.1 at 2018-06-15 12:38:55 +0900
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+vendor/bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/active_support.rb:53:in `block in load_missing_constant'
+vendor/bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/active_support.rb:8:in `without_bootsnap_cache'
+vendor/bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/active_support.rb:53:in `rescue in load_missing_constant'
+vendor/bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/active_support.rb:42:in `load_missing_constant'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/inflector/methods.rb:283:in `const_get'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/inflector/methods.rb:283:in `block in constantize'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/inflector/methods.rb:281:in `each'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/inflector/methods.rb:281:in `inject'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/inflector/methods.rb:281:in `constantize'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/http/request.rb:81:in `controller_class'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/routing/route_set.rb:46:in `controller'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/routing/route_set.rb:32:in `serve'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/journey/router.rb:52:in `block in serve'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/journey/router.rb:35:in `each'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/journey/router.rb:35:in `serve'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/routing/route_set.rb:840:in `call'
+vendor/bundle/ruby/2.5.0/gems/warden-1.2.7/lib/warden/manager.rb:36:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `catch'
+vendor/bundle/ruby/2.5.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/tempfile_reaper.rb:15:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/etag.rb:25:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/conditional_get.rb:25:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/head.rb:12:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/session/abstract/id.rb:232:in `context'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/session/abstract/id.rb:226:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/cookies.rb:670:in `call'
+vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/migration.rb:559:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:98:in `run_callbacks'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/executor.rb:14:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:135:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:30:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:20:in `catch'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:20:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:38:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:26:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:28:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:26:in `call'
+vendor/bundle/ruby/2.5.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/request_id.rb:27:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/method_override.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/runtime.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/executor.rb:14:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/static.rb:127:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/sendfile.rb:111:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/engine.rb:524:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/configuration.rb:225:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:632:in `handle_request'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:446:in `process_client'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:306:in `block in run'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users/1" for 127.0.0.1 at 2018-06-15 12:39:55 +0900
+  
+ActionController::RoutingError (uninitialized constant UsersController):
+  
+vendor/bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/active_support.rb:53:in `block in load_missing_constant'
+vendor/bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/active_support.rb:8:in `without_bootsnap_cache'
+vendor/bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/active_support.rb:53:in `rescue in load_missing_constant'
+vendor/bundle/ruby/2.5.0/gems/bootsnap-1.3.0/lib/bootsnap/load_path_cache/core_ext/active_support.rb:42:in `load_missing_constant'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/inflector/methods.rb:283:in `const_get'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/inflector/methods.rb:283:in `block in constantize'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/inflector/methods.rb:281:in `each'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/inflector/methods.rb:281:in `inject'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/inflector/methods.rb:281:in `constantize'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/http/request.rb:81:in `controller_class'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/routing/route_set.rb:46:in `controller'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/routing/route_set.rb:32:in `serve'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/journey/router.rb:52:in `block in serve'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/journey/router.rb:35:in `each'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/journey/router.rb:35:in `serve'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/routing/route_set.rb:840:in `call'
+vendor/bundle/ruby/2.5.0/gems/warden-1.2.7/lib/warden/manager.rb:36:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `catch'
+vendor/bundle/ruby/2.5.0/gems/warden-1.2.7/lib/warden/manager.rb:35:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/tempfile_reaper.rb:15:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/etag.rb:25:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/conditional_get.rb:25:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/head.rb:12:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/session/abstract/id.rb:232:in `context'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/session/abstract/id.rb:226:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/cookies.rb:670:in `call'
+vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/migration.rb:559:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/callbacks.rb:98:in `run_callbacks'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/executor.rb:14:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:135:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:30:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:20:in `catch'
+vendor/bundle/ruby/2.5.0/gems/web-console-3.6.2/lib/web_console/middleware.rb:20:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:38:in `call_app'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:26:in `block in call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `block in tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:28:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/tagged_logging.rb:71:in `tagged'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/rack/logger.rb:26:in `call'
+vendor/bundle/ruby/2.5.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/request_id.rb:27:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/method_override.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/runtime.rb:22:in `call'
+vendor/bundle/ruby/2.5.0/gems/activesupport-5.2.0/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/executor.rb:14:in `call'
+vendor/bundle/ruby/2.5.0/gems/actionpack-5.2.0/lib/action_dispatch/middleware/static.rb:127:in `call'
+vendor/bundle/ruby/2.5.0/gems/rack-2.0.5/lib/rack/sendfile.rb:111:in `call'
+vendor/bundle/ruby/2.5.0/gems/railties-5.2.0/lib/rails/engine.rb:524:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/configuration.rb:225:in `call'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:632:in `handle_request'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:446:in `process_client'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/server.rb:306:in `block in run'
+vendor/bundle/ruby/2.5.0/gems/puma-3.11.4/lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-06-15 12:40:01 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/static_pages_controller.rb:3
+  Rendering static_pages/home.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/static_pages/home.html.erb:1
+  Rendered static_pages/home.html.erb within layouts/application (24.3ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <% if user_signed_in? %>
+    2: <%= @user.name %>
+    3: <% end %>
+  
+app/views/static_pages/home.html.erb:2:in `_app_views_static_pages_home_html_erb__3821107938284011800_70113344729020'
+Started GET "/" for 127.0.0.1 at 2018-06-15 12:40:41 +0900
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/static_pages_controller.rb:3
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 3.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <%= @user.name %>
+  
+app/views/static_pages/home.html.erb:1:in `_app_views_static_pages_home_html_erb__3821107938284011800_70113336888340'
+Started GET "/users/1" for 127.0.0.1 at 2018-06-15 12:50:36 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:3
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_head_setting.html.erb (234.4ms)
+  Rendered layouts/_header.html.erb (2.9ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 356ms (Views: 291.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 13:23:59 +0900
+Processing by Users::RegistrationsController#new as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ vendor/bundle/ruby/2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Completed 401 Unauthorized in 78ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-15 13:23:59 +0900
+Processing by Users::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (9.0ms)
+  Rendered users/registrations/new.html.erb within layouts/application (39.3ms)
+  Rendered layouts/_head_setting.html.erb (93.8ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 205ms (Views: 202.9ms | ActiveRecord: 0.0ms)
+
+
