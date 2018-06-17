@@ -8,4 +8,13 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
+
+  # alias_method :devise_current_user, :current_user
+  # def current_user
+  #   if devise_current_user.nil?
+  #     User.new
+  #   else
+  #     User.find_by(id: devise_current_user.id)
+  #   end
+  # end
 end

@@ -1,0 +1,19 @@
+<div class="main">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="question-info">
+        <h1><%= @user.name %> <%= @question.created_at %></h1>
+        <h1><%= @question.title %></h1>
+        <h1><%= @question.tag %></h1>
+        <h1><%= @question.content %></h1>
+        <h1><%= link_to "削除", question_path, method: :delete, data: { confirm: "削除しますか？" } %></h1>
+        <% if @question.user_id == @user.id %>
+        <h1><%= link_to "編集", edit_question_path(@question) %></h1>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      右
+    </div>
+  </div>
+</div>

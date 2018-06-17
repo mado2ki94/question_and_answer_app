@@ -1,5 +1,82 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
 // 共通
 
 body {
-  padding-top: 80px;
+  padding-top: 60px;
+  background-color: #f8faf7;
+  // margin: auto;
+}
+
+.main {
+  width: 100%;
+}
+
+// デバッグ
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+
+// header
+header {
+  height: 60px;
+  color: white;
+  background-color: orange;
+  line-height: 60px;
+  #logo {
+    float: left;
+  }
+  .navber-right {
+    float: right;
+  }
+}
+
+// question-form
+.question-form {
+  width: 99%;
+  margin: auto;
+  .title-form {
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+  }
+  .tag-form {
+    height: 30px;
+    width: 100%;
+    border-radius: 5px;
+  }
+  .content-form {
+    height: 400px;
+    width: 100%;
+    border-radius: 5px;
+    resize: none;
+  }
+  .question-submit-btn {
+    width: 10%;
+    margin-left: 85%;
+    margin-right: 5%;
+    background-color: orange;
+  }
+}
+
+.question-info {
+  margin-left: 100px;
+  background-color: white;
+}
+
+.question {
+  margin-left: 100px;
+  background-color: white;
 }

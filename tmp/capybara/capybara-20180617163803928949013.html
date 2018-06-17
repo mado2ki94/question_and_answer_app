@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyApps</title>
+    
+
+
+<link rel="stylesheet" media="all" href="/assets/application-f4240b1d18adb0e94cf9127a525e8910377aea49d3ac97425add3fecb9c95018.css" data-turbolinks-track="reload" />
+<script src="/assets/application-26032eaec9d1c612a91eb8c7e7f2d450f87a9423cccb002d7175338260743604.js" data-turbolinks-track="reload"></script>
+
+  </head>
+
+  <body>
+    <header class="navbar navbar-fixed-top">
+  <div class="container">
+    <a id="logo" href="/">Logo</a>
+    <ul class="nav navbar-nav navber-right">
+        <li><a href="/users/sign_up">新規登録</a></li>
+        <li><a href="/users/sign_in">ログイン</a></li>
+    </ul>
+  </div>
+</header>
+
+    <p class="notice"></p>
+    <p class="alert">アカウント登録もしくはログインしてください。</p>
+    <div class="alert alert-alert">アカウント登録もしくはログインしてください。</div>
+    <h2>ログイン</h2>
+
+<form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+  <div class="field">
+    <label for="user_email">Eメール</label><br />
+    <input autofocus="autofocus" autocomplete="email" type="email" value="" name="user[email]" id="user_email" />
+  </div>
+
+  <div class="field">
+    <label for="user_password">パスワード</label><br />
+    <input autocomplete="off" type="password" name="user[password]" id="user_password" />
+  </div>
+
+    <div class="field">
+      <input name="user[remember_me]" type="hidden" value="0" /><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me" />
+      <label for="user_remember_me">ログインを記憶する</label>
+    </div>
+
+  <div class="actions">
+    <input type="submit" name="commit" value="ログイン" data-disable-with="ログイン" />
+  </div>
+</form>
+
+  <a href="/users/sign_up">アカウント登録</a><br />
+
+  <a href="/users/password/new">パスワードを忘れましたか?</a><br />
+
+  <a href="/users/confirmation/new">アカウント確認のメールを受け取っていませんか?</a><br />
+
+  <a href="/users/unlock/new">アカウントの凍結解除方法のメールを受け取っていませんか?</a><br />
+
+
+
+    <footer>
+  
+</footer>
+
+    
+  </body>
+</html>

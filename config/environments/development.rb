@@ -35,6 +35,7 @@ Rails.application.configure do
 
   # gem deviseの設定
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # config.action_mailer.default_url_options[:host] = 'localhost:3000'
 
   # 認証メールをブラウザで確認
   config.action_mailer.delivery_method = :letter_opener_web
