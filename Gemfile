@@ -8,6 +8,8 @@ gem 'rails', '~> 5.2.0'
 gem 'bootstrap-sass', '3.3.7'
 gem 'devise'
 gem 'devise-i18n'
+gem 'carrierwave'
+gem 'mini_magick'
 gem 'rspec-rails', '~>3.6.0'
 gem 'factory_girl_rails', '~>4.8.0'
 gem 'spring-commands-rspec'
@@ -64,6 +66,10 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+end
+
+group :production do
+  gem 'fog', '1.42'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

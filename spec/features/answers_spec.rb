@@ -17,7 +17,6 @@ RSpec.feature "Answers", type: :feature do
       visit "questions/#{question.id}"
       fill_in "回答", with: "Test answer"
       click_button "回答する"
-      # save_and_open_page
 
       expect(page).to have_content "回答しました。"
     }.to change(question.answers, :count).by(1)
