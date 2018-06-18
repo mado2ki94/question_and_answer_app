@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   resources :users, :only => [:show]
   resources :questions
+  resources :answers, :only => [:create, :destroy]
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"

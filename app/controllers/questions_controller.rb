@@ -22,8 +22,12 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    session[:question_id] = params[:id]
     @question = Question.find_by(id: params[:id])
     @user = User.find_by(id: @question.user_id)
+    if user_signed_in?
+      @answer = current_user.answers.build
+    end
   end
 
   def edit

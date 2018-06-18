@@ -10,6 +10,29 @@
         <% if @question.user_id == @user.id %>
         <h1><%= link_to "編集", edit_question_path(@question) %></h1>
         <% end %>
+
+          <%= @question.answers.each do |answer| %>
+            <h2><%= answer.content %></h2>
+            <h3><%= answer.user_id %></h3>
+            <h3><%= answer.created_at %></h3>
+            <% if user_signed_in? %>
+              <% if answer.user_id == current_user.id %>
+                <%= link_to "回答を削除する", answer_path(answer), method: :delete, data: { confirm: "削除しますか？" } %>
+              <% end %>
+            <% end %>
+          <% end %>
+
+        <% if user_signed_in? %>
+
+          <%= form_for @answer do |f| %>
+
+            <%= f.label :content, "回答" %>
+            <%= f.text_area :content, class: "answer-form", autocomplete: "off", placeholder: "回答" %>
+
+            <%= f.submit "回答する", class: "answer-submit-btn" %>
+
+          <% end %>
+        <% end %>
       </div>
     </div>
     <div class="col-md-4">

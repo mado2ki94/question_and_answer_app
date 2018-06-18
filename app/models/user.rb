@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :confirmable, :lockable, :timeoutable
 
   has_many :questions, dependent: :destroy
+  has_many :answers
   validates :name, presence: true
   attr_accessor :confirmed_at
 
