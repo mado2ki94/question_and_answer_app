@@ -27,6 +27,7 @@ class QuestionsController < ApplicationController
     @user = User.find_by(id: @question.user_id)
     if user_signed_in?
       @answer = current_user.answers.build
+      @response = current_user.responses.build
     end
   end
 

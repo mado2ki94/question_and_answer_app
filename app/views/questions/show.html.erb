@@ -15,9 +15,26 @@
             <h2><%= answer.content %></h2>
             <h3><%= answer.user_id %></h3>
             <h3><%= answer.created_at %></h3>
+            <% if user_signed_in? && answer.user_id == current_user.id %>
+              <%= link_to "回答を削除する", answer_path(answer), method: :delete, data: { confirm: "削除しますか？" } %>
+            <% end %>
+
+            <%= answer.responses.each do |response| %>
+              <h3><%= response.user_id %></h3>
+              <h3><%= response.content %></h3>
+              <% if user_signed_in? && response.user_id == current_user.id %>
+                <%= link_to "返信を削除する", response_path(response), method: :delete, data: { confirm: "削除しますか？" } %>
+              <% end %>
+            <% end %>
+
             <% if user_signed_in? %>
-              <% if answer.user_id == current_user.id %>
-                <%= link_to "回答を削除する", answer_path(answer), method: :delete, data: { confirm: "削除しますか？" } %>
+              <%= form_for @response do |f| %>
+                <%= f.hidden_field :answer_id, :value => answer.id %>
+
+                <%= f.label :content, "返信" %>
+                <%= f.text_area :content, class: "response-form", autocomplete: "off", placeholder: "返信" %>
+
+                <%= f.submit "返信する", class: "response-submit-btn" %>
               <% end %>
             <% end %>
           <% end %>

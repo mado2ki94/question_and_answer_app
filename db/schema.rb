@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_18_135002) do
+ActiveRecord::Schema.define(version: 2018_06_19_015927) do
 
   create_table "answers", force: :cascade do |t|
     t.text "content"
@@ -34,6 +34,21 @@ ActiveRecord::Schema.define(version: 2018_06_18_135002) do
     t.integer "resolution", default: 0
     t.index ["user_id", "created_at"], name: "index_questions_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_questions_on_user_id"
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.integer "question_id"
+    t.integer "answer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["answer_id", "created_at"], name: "index_responses_on_answer_id_and_created_at"
+    t.index ["answer_id"], name: "index_responses_on_answer_id"
+    t.index ["question_id", "created_at"], name: "index_responses_on_question_id_and_created_at"
+    t.index ["question_id"], name: "index_responses_on_question_id"
+    t.index ["user_id", "created_at"], name: "index_responses_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_responses_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

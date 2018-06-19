@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :questions, dependent: :destroy
   has_many :answers
+  has_many :responses
   validates :name, presence: true
   attr_accessor :confirmed_at
   mount_uploader :avatar, AvatarUploader
