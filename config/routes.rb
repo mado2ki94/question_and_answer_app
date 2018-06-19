@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :questions
   resources :answers, :only => [:create, :destroy]
   resources :responses, :only => [:create, :destroy]
+  patch 'resolutions', to: 'resolutions#close'
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"

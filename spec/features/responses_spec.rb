@@ -24,7 +24,7 @@ RSpec.feature "Responses", type: :feature do
   end
 
   # ユーザーは自分の返信を削除する
-  scenario "user destroy a user's response" do
+  scenario "user destroy user's response" do
     user = FactoryGirl.create(:user)
     other_user = FactoryGirl.create(:user)
     question = FactoryGirl.create(:question, user_id: other_user.id)

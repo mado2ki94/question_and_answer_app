@@ -3,12 +3,20 @@
     <div class="col-md-8">
       <div class="question-info">
         <h1><%= @user.name %> <%= @question.created_at %></h1>
+        <% if @question.resolution == 0 %>
+          <h3>この質問は回答を受付中です。</h3>
+        <% else %>
+          <h3>この質問は回答を締め切りました。</h3>
+        <% end %>
         <h1><%= @question.title %></h1>
         <h1><%= @question.tag %></h1>
         <h1><%= @question.content %></h1>
-        <h1><%= link_to "削除", question_path, method: :delete, data: { confirm: "削除しますか？" } %></h1>
-        <% if @question.user_id == @user.id %>
-        <h1><%= link_to "編集", edit_question_path(@question) %></h1>
+        <% if user_signed_in? && @question.user_id == current_user.id %>
+          <h1><%= link_to "削除", question_path, method: :delete, data: { confirm: "削除しますか？" } %></h1>
+          <% if @question.resolution == 0 %>
+            <h1><%= link_to "編集", edit_question_path(@question) %></h1>
+            <h1><%= link_to "締め切る", "/resolutions", method: :patch, data: { confirm: "質問を締め切りますか？" } %></h1>
+          <% end %>
         <% end %>
 
           <%= @question.answers.each do |answer| %>
@@ -27,7 +35,7 @@
               <% end %>
             <% end %>
 
-            <% if user_signed_in? %>
+            <% if user_signed_in? && @question.resolution == 0 %>
               <%= form_for @response do |f| %>
                 <%= f.hidden_field :answer_id, :value => answer.id %>
 
@@ -39,7 +47,7 @@
             <% end %>
           <% end %>
 
-        <% if user_signed_in? %>
+        <% if user_signed_in? && @question.resolution == 0 %>
 
           <%= form_for @answer do |f| %>
 

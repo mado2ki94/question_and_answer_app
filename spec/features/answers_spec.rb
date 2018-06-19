@@ -23,7 +23,7 @@ RSpec.feature "Answers", type: :feature do
   end
 
   # ユーザーは自分の回答を削除する
-  scenario "user destroy a user's answer" do
+  scenario "user destroy user's answer" do
     user = FactoryGirl.create(:user)
     other_user = FactoryGirl.create(:user)
     question = FactoryGirl.create(:question, user_id: other_user.id)
