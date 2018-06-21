@@ -9,7 +9,7 @@ class AnswersController < ApplicationController
     params[:answer][:user_id]     = current_user.id
     @answer = @question.answers.build(params.require(:answer).permit(:content, :question_id, :user_id))
     if @answer.save
-      flash[:success] = "回答しました。"
+      flash[:notice] = "回答しました。"
       redirect_to @question
     else
       # render "/users/new"
@@ -21,7 +21,7 @@ class AnswersController < ApplicationController
     @answer = Answer.find_by(id: params[:id])
     @question = Question.find_by(id: @answer.question_id)
     @answer.destroy
-    flash[:success] = "削除しました。"
+    flash[:notice] = "削除しました。"
     redirect_to @question
   end
 

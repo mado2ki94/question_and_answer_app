@@ -8,7 +8,7 @@ class ResponsesController < ApplicationController
     params[:response][:question_id] = session[:question_id]
     @response = @answer.responses.build(response_params)
     if @response.save
-      flash[:success] = "返信しました。"
+      flash[:notice] = "返信しました。"
       redirect_to @question
     else
       redirect_to @question
@@ -19,7 +19,7 @@ class ResponsesController < ApplicationController
     @response = Response.find_by(id: params[:id])
     @question = Question.find_by(id: @response.question_id)
     @response.destroy
-    flash[:success] = "削除しました。"
+    flash[:notice] = "削除しました。"
     redirect_to @question
   end
 

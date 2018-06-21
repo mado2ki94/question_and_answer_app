@@ -1,1 +1,33 @@
-Top Page
+<% unless user_signed_in? %>
+  <div class="welcome">
+    <p>Welcome to Question_And_Answer_app!!</p>
+  </div>
+  <div class="explain">
+    <p>サイトの説明文</p>
+    <%= link_to "新規登録", "/users/sign_up", class: "btn btn-warning" %>
+  </div>
+<% end %>
+<div class="main">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="questions">
+        <div class="questions-title">
+          <h4>　<span class="glyphicon glyphicon-align-left">　人気の質問一覧</h4>
+        </div>
+        <% @questions.each do |question| %>
+        <div class="question">
+          <%= image_tag question.user.avatar.url, size: 50, class: "avatar-in-question-info question-left" if question.user.avatar? %>
+          <%= link_to question.title, question, class: "question-link" %><br>
+          <p>by_<%= question.user.name %></p>
+          <%= time_ago_in_words(question.created_at) %>前
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="ranking">
+
+      </div>
+    </div>
+  </div>
+</div>

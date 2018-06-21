@@ -13,10 +13,10 @@ class QuestionsController < ApplicationController
   def create
     @question = current_user.questions.build(question_params)
     if @question.save
-      flash[:success] = "投稿しました。"
+      flash[:notice] = "投稿しました。"
       redirect_to root_url
     else
-      flash[:danger] = "失敗しました。"
+      flash[:alert] = "失敗しました。"
       render 'static_pages/home'
     end
   end
@@ -38,10 +38,10 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find_by(id: params[:id])
     if @question.update_attributes(question_params)
-      flash[:success] = "編集しました。"
+      flash[:notice] = "編集しました。"
       redirect_to root_url
     else
-      flash[:danger] = "失敗しました。"
+      flash[:alert] = "失敗しました。"
       render 'static_pages/home'
     end
   end
@@ -49,7 +49,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question = Question.find_by(id: params[:id])
     @question.destroy
-    flash[:success] = "削除しました。"
+    flash[:notice] = "削除しました。"
     redirect_to root_url
   end
 

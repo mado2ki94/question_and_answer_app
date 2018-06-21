@@ -2,62 +2,74 @@
   <div class="row">
     <div class="col-md-8">
       <div class="question-info">
-        <h1><%= @user.name %> <%= @question.created_at %></h1>
+        <h1>
+          <%= image_tag @user.avatar.url, size: 40, class: "avatar-in-question-info" if @user.avatar? %>
+          <p class="user-name-in-questions-show"><%= @user.name %></p>
+          <p class="posted-time-in-questions-show"><%= time_ago_in_words(@question.created_at) %>前</p><br>
+          <p class="question-title-in-questions-show"><%= @question.title %></p>
+        </h1>
         <% if @question.resolution == 0 %>
-          <h3>この質問は回答を受付中です。</h3>
+          <p class="question-acceptance-state">（この質問は回答を受付中です。）</p>
         <% else %>
-          <h3>この質問は回答を締め切りました。</h3>
+          <p class="question-acceptance-state">（この質問は回答を締め切りました。）</p>
         <% end %>
-        <h1><%= @question.title %></h1>
         <h1><%= @question.tag %></h1>
-        <h1><%= @question.content %></h1>
+        <p class="question-content-in-questions-show"><%= @question.content %></p>
         <% if user_signed_in? && @question.user_id == current_user.id %>
-          <h1><%= link_to "削除", question_path, method: :delete, data: { confirm: "削除しますか？" } %></h1>
           <% if @question.resolution == 0 %>
-            <h1><%= link_to "編集", edit_question_path(@question) %></h1>
-            <h1><%= link_to "締め切る", "/resolutions", method: :patch, data: { confirm: "質問を締め切りますか？" } %></h1>
+            <p class="question-close-link"><%= link_to "締め切る", "/resolutions", method: :patch, data: { confirm: "質問を締め切りますか？" } %></p>
+            <p class="question-edit-link"><%= link_to "編集", edit_question_path(@question) %></p>
           <% end %>
+          <p class="question-delete-link"><%= link_to "削除", question_path, method: :delete, data: { confirm: "削除しますか？" } %></p>
         <% end %>
-
-          <%= @question.answers.each do |answer| %>
-            <h2><%= answer.content %></h2>
-            <h3><%= answer.user_id %></h3>
-            <h3><%= answer.created_at %></h3>
-            <% if user_signed_in? && answer.user_id == current_user.id %>
-              <%= link_to "回答を削除する", answer_path(answer), method: :delete, data: { confirm: "削除しますか？" } %>
+        <div class="answers">
+          <p class="answers-title">回答一覧</p>
+          <div class="answer">
+            <% @question.answers.each do |answer| %>
+              <div class="answer-info">
+                <%= image_tag answer.user.avatar.url, size: 40, class: "avatar-in-answer-info answer-left" if @user.avatar? %>
+                <p><%= answer.user.name %>　<%= time_ago_in_words(answer.created_at) %>前</p>
+              </div>
+              <div class="answer-content">
+                <p><%= answer.content %></p>
+                <% if user_signed_in? && answer.user_id == current_user.id %>
+                  <%= link_to "回答を削除する", answer_path(answer), method: :delete, data: { confirm: "削除しますか？" } %>
+                <% end %>
+              </div>
+              <div class="responses">
+                <% answer.responses.each do |response| %>
+                  <div class="response-info">
+                    <%= image_tag response.user.avatar.url, size: 40, class: "avatar-in-response-info response-left" if @user.avatar? %>
+                    <p><%= response.user.name %>　<%= time_ago_in_words(response.created_at) %>前</p>
+                  </div>
+                  <div class="response-content">
+                    <p><%= response.content %></p>
+                    <% if user_signed_in? && response.user_id == current_user.id %>
+                      <%= link_to "返信を削除する", response_path(response), method: :delete, data: { confirm: "削除しますか？" } %>
+                    <% end %>
+                  </div>
+                <% end %>
+                <div class="response-form">
+                  <% if user_signed_in? && @question.resolution == 0 %>
+                    <%= form_for @response do |f| %>
+                      <%= f.hidden_field :answer_id, :value => answer.id %>
+                      <%= f.text_area :content, class: "response-form", autocomplete: "off", placeholder: "返信", class: "response-content-form" %><br>
+                      <%= f.submit "返信する", class: "response-submit-btn" %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
             <% end %>
-
-            <%= answer.responses.each do |response| %>
-              <h3><%= response.user_id %></h3>
-              <h3><%= response.content %></h3>
-              <% if user_signed_in? && response.user_id == current_user.id %>
-                <%= link_to "返信を削除する", response_path(response), method: :delete, data: { confirm: "削除しますか？" } %>
-              <% end %>
-            <% end %>
-
-            <% if user_signed_in? && @question.resolution == 0 %>
-              <%= form_for @response do |f| %>
-                <%= f.hidden_field :answer_id, :value => answer.id %>
-
-                <%= f.label :content, "返信" %>
-                <%= f.text_area :content, class: "response-form", autocomplete: "off", placeholder: "返信" %>
-
-                <%= f.submit "返信する", class: "response-submit-btn" %>
-              <% end %>
+          </div>
+        </div>
+        <div class="answer-form">
+          <% if user_signed_in? && @question.resolution == 0 %>
+            <%= form_for @answer do |f| %>
+              <%= f.text_area :content, class: "answer-form", autocomplete: "off", placeholder: "回答", class: "answer-content-form" %>
+              <%= f.submit "回答する", class: "answer-submit-btn" %>
             <% end %>
           <% end %>
-
-        <% if user_signed_in? && @question.resolution == 0 %>
-
-          <%= form_for @answer do |f| %>
-
-            <%= f.label :content, "回答" %>
-            <%= f.text_area :content, class: "answer-form", autocomplete: "off", placeholder: "回答" %>
-
-            <%= f.submit "回答する", class: "answer-submit-btn" %>
-
-          <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
     <div class="col-md-4">
