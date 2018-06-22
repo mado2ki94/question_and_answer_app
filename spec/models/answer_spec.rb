@@ -10,14 +10,14 @@ RSpec.describe Answer, type: :model do
   it "is invalid without a content" do
     answer = FactoryGirl.build(:answer, content: nil)
     answer.save
-    expect(answer.errors[:content]).to include("translation missing: ja.activerecord.errors.models.answer.attributes.content.blank")
+    expect(answer.errors[:content]).to include("を入力してください")
   end
 
   # contentが10001字以上であれば無効な状態であること(10001字の場合)
   it "is invalid when content has 10001 characters" do
     answer = FactoryGirl.build(:answer, content: "a" * 10001)
     answer.save
-    expect(answer.errors[:content]).to include("translation missing: ja.activerecord.errors.models.answer.attributes.content.too_long")
+    expect(answer.errors[:content]).to include("は10000文字以内で入力してください")
   end
 
   # contentが10000字以下であれば有効な状態であること(10000字の場合)
@@ -29,14 +29,14 @@ RSpec.describe Answer, type: :model do
   it "is invalid without a user_id" do
     answer = FactoryGirl.build(:answer, user_id: nil)
     answer.save
-    expect(answer.errors[:user_id]).to include("translation missing: ja.activerecord.errors.models.answer.attributes.user_id.blank")
+    expect(answer.errors[:user_id]).to include("を入力してください")
   end
 
   # question_idがなければ無効な状態であること
   it "is invalid without a question_id" do
     answer = FactoryGirl.build(:answer, question_id: nil)
     answer.save
-    expect(answer.errors[:question_id]).to include("translation missing: ja.activerecord.errors.models.answer.attributes.question_id.blank")
+    expect(answer.errors[:question_id]).to include("を入力してください")
   end
 
 end

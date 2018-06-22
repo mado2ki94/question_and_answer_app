@@ -32,8 +32,20 @@
               </div>
               <div class="answer-content">
                 <p><%= answer.content %></p>
-                <% if user_signed_in? && answer.user_id == current_user.id %>
-                  <%= link_to "回答を削除する", answer_path(answer), method: :delete, data: { confirm: "削除しますか？" } %>
+                <% if user_signed_in? %>
+                  <% if answer.user_id == current_user.id %>
+                    <%= link_to "回答を削除する", answer_path(answer), method: :delete, data: { confirm: "削除しますか？" } %>
+                  <% elsif current_user.like?(answer) %>
+                    <%= form_for(current_user.likes.find_by(answer_id: answer.id), method: :delete) do |f| %>
+                      <%= hidden_field_tag :answer_id, answer.id %>
+                      <%= f.submit 'いいね済み', class: "unlike-btn" %>
+                    <% end %>
+                  <% else %>
+                    <%= form_for(current_user.likes.build) do |f| %>
+                      <%= hidden_field_tag :answer_id, answer.id %>
+                      <%= f.submit 'いいね', class: "like-btn" %>
+                    <% end %>
+                  <% end %>
                 <% end %>
               </div>
               <div class="responses">

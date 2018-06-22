@@ -25,7 +25,7 @@ RSpec.describe User, type: :model do
   it "is invalid when password is 5 characters" do
     user = FactoryGirl.build(:user, password: "a" * 5)
     user.valid?
-    expect(user.errors[:password]).to include("translation missing: ja.activerecord.errors.models.user.attributes.password.too_short")
+    expect(user.errors[:password]).to include("は6文字以上で入力してください")
   end
 
   # 6文字のパスワードは有効であること

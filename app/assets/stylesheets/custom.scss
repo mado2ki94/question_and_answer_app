@@ -295,6 +295,13 @@ footer {
         p {
           font-size: 18px;
         }
+        .unlike-btn, .like-btn {
+          width: 120px;
+          height: 30px;
+          font-weight: bold;
+          background-color: #ff8c00;
+          border-radius: 20px;
+        }
       }
       .responses {
         width: 90%;

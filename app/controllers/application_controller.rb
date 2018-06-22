@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
 
+  def counts(user)
+    @count_likes = user.likes.count
+  end
+
   # alias_method :devise_current_user, :current_user
   # def current_user
   #   if devise_current_user.nil?
