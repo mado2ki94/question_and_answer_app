@@ -3,7 +3,11 @@
     <div class="col-md-8">
       <div class="question-info">
         <h1>
-          <%= image_tag @user.avatar.url, size: 40, class: "avatar-in-question-info" if @user.avatar? %>
+          <% if @user.avatar? %>
+              <%= image_tag @user.avatar.url, size: 40, class: "avatar-in-question-info" %>
+            <% else %>
+              <%= image_tag "default.jpg", size: 40, class: "avatar-in-question-info" %>
+            <% end %>
           <p class="user-name-in-questions-show"><%= @user.name %></p>
           <p class="posted-time-in-questions-show"><%= time_ago_in_words(@question.created_at) %>前</p><br>
           <p class="question-title-in-questions-show"><%= @question.title %></p>
@@ -27,7 +31,11 @@
           <div class="answer">
             <% @question.answers.each do |answer| %>
               <div class="answer-info">
-                <%= image_tag answer.user.avatar.url, size: 40, class: "avatar-in-answer-info answer-left" if @user.avatar? %>
+                <% if @user.avatar? %>
+                  <%= image_tag answer.user.avatar.url, size: 40, class: "avatar-in-answer-info answer-left" %>
+                <% else %>
+                  <%= image_tag "default.jpg", size: 40, class: "avatar-in-answer-info answer-left" %>
+                <% end %>
                 <p><%= answer.user.name %>　<%= time_ago_in_words(answer.created_at) %>前</p>
               </div>
               <div class="answer-content">
@@ -51,7 +59,11 @@
               <div class="responses">
                 <% answer.responses.each do |response| %>
                   <div class="response-info">
-                    <%= image_tag response.user.avatar.url, size: 40, class: "avatar-in-response-info response-left" if @user.avatar? %>
+                    <% if @user.avatar? %>
+                      <%= image_tag response.user.avatar.url, size: 40, class: "avatar-in-response-info response-left" %>
+                    <% else %>
+                      <%= image_tag "default.jpg", size: 40, class: "avatar-in-response-info response-left" %>
+                    <% end %>
                     <p><%= response.user.name %>　<%= time_ago_in_words(response.created_at) %>前</p>
                   </div>
                   <div class="response-content">

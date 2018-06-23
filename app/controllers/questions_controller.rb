@@ -2,8 +2,10 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
+  PER = 20
+
   def index
-    @questions = Question.all
+    @questions = Question.page(params[:page]).per(PER)
   end
 
   def new

@@ -11,12 +11,17 @@
       </div>
       <% @questions.each do |question| %>
         <div class="my-question">
-          <%= image_tag question.user.avatar.url, size: 50, class: "avatar-in-question-info question-left" if question.user.avatar? %>
+          <% if question.user.avatar? %>
+              <%= image_tag question.user.avatar.url, size: 50, class: "avatar-in-question-info question-left" %>
+            <% else %>
+              <%= image_tag "default.jpg", size: 50, class: "avatar-in-question-info question-left" %>
+            <% end %>
           <%= link_to question.title, question, class: "question-link" %><br>
           <p>by_<%= question.user.name %></p>
           <%= time_ago_in_words(question.created_at) %>前
         </div>
       <% end %>
+      <%= paginate @questions, :window => 2 %>
 
     </div>
 

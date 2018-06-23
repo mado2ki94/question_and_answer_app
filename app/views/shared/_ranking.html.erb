@@ -1,0 +1,15 @@
+<div class="ranking">
+  <h2>ユーザーランキング</h2>
+  <% @rankings.each_with_index do |user, index| %>
+  <div class="rank_in_user">
+      <div class="rank_number"><%= index + 1 %></div>
+      <% if user.avatar? %>
+        <%= image_tag user.avatar.url, size: 30 %>
+      <% else %>
+        <%= image_tag "default.jpg", size: 30 %>
+      <% end %>
+      <div class="rank_in_user_name"><%= user.name %></div>
+      <div class="rank_in_user_liker"><%= user.liker %>いいね</div>
+  </div>
+  <% end %>
+</div>

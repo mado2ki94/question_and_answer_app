@@ -16,6 +16,9 @@ gem 'mini_magick'
 gem 'rspec-rails', '~>3.6.0'
 gem 'factory_girl_rails', '~>4.8.0'
 gem 'spring-commands-rspec'
+gem 'faker'
+gem 'kaminari', '~> 0.17.0'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server

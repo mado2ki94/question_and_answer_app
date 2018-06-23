@@ -21,14 +21,20 @@ class User < ApplicationRecord
 
   def like(answer)
     self.likes.find_or_create_by(answer_id: answer.id)
+    answer.user.liker += 1
   end
 
   def unlike(answer)
     like = self.likes.find_by(answer_id: answer.id)
     like.destroy if like
+    self.liker -= 1
   end
 
   def like?(answer)
     self.likings.include?(answer)
+  end
+
+  def self.ranking
+    self.order('liker DESC').limit(10)
   end
 end

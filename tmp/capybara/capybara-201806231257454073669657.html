@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyApps</title>
+    
+
+
+<link rel="stylesheet" media="all" href="/assets/application-ad4445cac916d16c83cc78678e57f8fc0e59fe5b45caa30cbea458579357c399.css" data-turbolinks-track="reload" />
+<script src="/assets/application-cd40c1e978ac69a5cf3b7d945f263c9438f214ef3184ecd123db8a190c41718e.js" data-turbolinks-track="reload"></script>
+
+  </head>
+
+  <body>
+    <header class="navbar navbar-fixed-top">
+  <div class="container">
+    <a id="logo" href="/">Logo</a>
+      <span class="user-name">example_name</span>様
+    <ul class="nav navbar-nav navber-right">
+        <li><a href="/questions/new">質問する</a></li>
+        <li><a href="/questions">回答する</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            アカウント <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-menu-list"><a class="dropdown-link" href="/users/1">マイページ</a></li>
+            <li class="dropdown-menu-list"><a class="dropdown-link" href="/users/edit">登録情報変更</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-menu-list"><a class="dropdown-link" rel="nofollow" data-method="delete" href="/users/sign_out">ログアウト</a></li>
+          </ul>
+        </li>
+    </ul>
+  </div>
+</header>
+
+    <div class="main">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="question-info">
+        <h1>
+          
+          <p class="user-name-in-questions-show">example_name</p>
+          <p class="posted-time-in-questions-show">1分前</p><br>
+          <p class="question-title-in-questions-show">test-title</p>
+        </h1>
+          <p class="question-acceptance-state">（この質問は回答を受付中です。）</p>
+        <h1>training-method</h1>
+        <p class="question-content-in-questions-show">how many do you training in a week?</p>
+            <p class="question-close-link"><a data-confirm="質問を締め切りますか？" rel="nofollow" data-method="patch" href="/resolutions">締め切る</a></p>
+            <p class="question-edit-link"><a href="/questions/1/edit">編集</a></p>
+          <p class="question-delete-link"><a data-confirm="削除しますか？" rel="nofollow" data-method="delete" href="/questions/1">削除</a></p>
+        <div class="answers">
+          <p class="answers-title">回答一覧</p>
+          <div class="answer">
+              <div class="answer-info">
+                
+                <p>example_name　1分前</p>
+              </div>
+              <div class="answer-content">
+                <p>Test answer</p>
+                    <form class="new_like" id="new_like" action="/likes" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+                      <input type="hidden" name="answer_id" id="answer_id" value="1" />
+                      <input type="submit" name="commit" value="いいね" class="like-btn" data-disable-with="いいね" />
+</form>              </div>
+              <div class="responses">
+                <div class="response-form">
+                    <form class="new_response" id="new_response" action="/responses" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+                      <input value="1" type="hidden" name="response[answer_id]" id="response_answer_id" />
+                      <textarea class="response-content-form" autocomplete="off" placeholder="返信" name="response[content]" id="response_content">
+</textarea><br>
+                      <input type="submit" name="commit" value="返信する" class="response-submit-btn" data-disable-with="返信する" />
+</form>                </div>
+              </div>
+          </div>
+        </div>
+        <div class="answer-form">
+            <form class="new_answer" id="new_answer" action="/answers" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+              <textarea class="answer-content-form" autocomplete="off" placeholder="回答" name="answer[content]" id="answer_content">
+</textarea>
+              <input type="submit" name="commit" value="回答する" class="answer-submit-btn" data-disable-with="回答する" />
+</form>        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      右
+    </div>
+  </div>
+</div>
+
+    <footer class="footer">
+  Copyright © 2018 Q&Aアプリ(仮) All Rights Reserved.
+</footer>
+
+    
+  </body>
+</html>
