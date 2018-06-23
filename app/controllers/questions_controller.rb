@@ -6,6 +6,7 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.page(params[:page]).per(PER)
+    @rankings = User.ranking
   end
 
   def new
@@ -27,6 +28,7 @@ class QuestionsController < ApplicationController
     session[:question_id] = params[:id]
     @question = Question.find_by(id: params[:id])
     @user = User.find_by(id: @question.user_id)
+    @rankings = User.ranking
     if user_signed_in?
       @answer = current_user.answers.build
       @response = current_user.responses.build

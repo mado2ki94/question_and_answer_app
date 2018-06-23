@@ -1,6 +1,6 @@
 <header class="navbar navbar-fixed-top">
   <div class="container">
-    <%= link_to "Logo", root_path, id: "logo" %>
+    <%= link_to image_tag("kinniita_logo.png", height: 60,id: "logo"), root_path, id: "logo" %>
     <% if user_signed_in? %>
       <span class="user-name"><%= current_user.name %></span>様
     <% end %>

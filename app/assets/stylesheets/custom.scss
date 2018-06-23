@@ -171,8 +171,8 @@ footer {
    }
   .question-link {
     font-weight: bold;
-    font-size: 20px;
     color: black;
+    font-size: 24px;
     &:hover {
       color: black;
     }
@@ -273,6 +273,12 @@ footer {
   .user-name-in-questions-show {
     display: inline-block;
     padding: 0 20px;
+    a {
+      color: black;
+      &:hover {
+        color: black;
+      }
+    }
   }
   .posted-time-in-questions-show {
     display: inline-block;
@@ -532,7 +538,7 @@ footer {
        }
       .my-question {
         height: 83px;
-        margin-top: 30px;
+        margin-top: 15px;
         padding: 16px;
         border-top: 1px solid #eaeaea;
         .question-left {
@@ -547,6 +553,14 @@ footer {
           display: inline-block;
           color: #777;
           margin-right: 10px;
+        }
+        a {
+          font-size: 24px;
+          font-weight: bold;
+          color: black;
+          &:hover {
+            color: black;
+          }
         }
       }
     }
