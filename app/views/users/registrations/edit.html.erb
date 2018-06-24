@@ -1,7 +1,12 @@
 <div class="users-edit">
   <h2>登録情報変更</h2>
   <div class="avatar-in-users-edit-page">
-    <%= image_tag @user.avatar.url, size: 200, class: "avatar-in-users-edit-page" if @user.avatar? %><br>
+    <% unless @user.avatar.nil? %>
+      <%= image_tag @user.avatar.url, size: 200, class: "avatar-in-users-edit-page" %>
+    <% else %>
+      <%= image_tag "default.jpg", size: 200, class: "avatar-in-users-edit-page" %>
+    <% end %>
+
   </div>
   <div class="users-edit-content">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>

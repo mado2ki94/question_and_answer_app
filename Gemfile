@@ -19,6 +19,8 @@ gem 'spring-commands-rspec'
 gem 'faker'
 gem 'kaminari', '~> 0.17.0'
 gem 'kaminari-bootstrap', '~> 3.0.1'
+gem 'omniauth'
+gem 'omniauth-twitter'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server

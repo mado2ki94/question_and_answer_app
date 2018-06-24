@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'responses/create'
   get 'responses/destroy'
   get 'users/show'
-  devise_for :users, module: :users
+  devise_for :users, module: :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'static_pages#home'
   resources :users, only: [:show]
   resources :questions

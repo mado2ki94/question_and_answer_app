@@ -16,7 +16,7 @@
         </div>
         <% @questions.each do |question| %>
         <div class="question">
-          <% if question.user.avatar? %>
+          <% unless question.user.avatar.nil? %>
             <%= image_tag question.user.avatar.url, size: 50, class: "avatar-in-question-info question-left" %>
           <% else %>
             <%= image_tag "default.jpg", size: 50, class: "avatar-in-question-info question-left" %>

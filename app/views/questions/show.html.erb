@@ -3,7 +3,7 @@
     <div class="col-md-8">
       <div class="question-info">
         <h1>
-          <% if @user.avatar? %>
+          <% unless @user.avatar.nil? %>
               <%= image_tag @user.avatar.url, size: 40, class: "avatar-in-question-info" %>
             <% else %>
               <%= image_tag "default.jpg", size: 40, class: "avatar-in-question-info" %>
@@ -31,7 +31,7 @@
           <div class="answer">
             <% @question.answers.each do |answer| %>
               <div class="answer-info">
-                <% if @user.avatar? %>
+                <% unless @user.avatar.nil? %>
                   <%= image_tag answer.user.avatar.url, size: 40, class: "avatar-in-answer-info answer-left" %>
                 <% else %>
                   <%= image_tag "default.jpg", size: 40, class: "avatar-in-answer-info answer-left" %>
@@ -59,7 +59,7 @@
               <div class="responses">
                 <% answer.responses.each do |response| %>
                   <div class="response-info">
-                    <% if @user.avatar? %>
+                    <% unless @user.avatar.nil? %>
                       <%= image_tag response.user.avatar.url, size: 40, class: "avatar-in-response-info response-left" %>
                     <% else %>
                       <%= image_tag "default.jpg", size: 40, class: "avatar-in-response-info response-left" %>

@@ -14,7 +14,7 @@ RSpec.feature "Questions", type: :feature do
     expect {
       click_link "質問する"
       fill_in "タイトル", with: "Test question"
-      fill_in "タグ", with: "Test Tag"
+      # fill_in "タグ", with: "Test Tag"
       fill_in "本文", with: "Test content"
       click_button "投稿する"
 

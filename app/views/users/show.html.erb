@@ -1,6 +1,11 @@
 <div class="my-page">
   <div class="col-md-3 my-page-left">
-    <%= image_tag @user.avatar.url, size: 250, class: "avatar-in-my-page" if @user.avatar? %><br>
+    <% unless @user.avatar.nil?%>
+      <%= image_tag @user.avatar.url, size: 250, class: "avatar-in-my-page" %>
+    <% else %>
+      <%= image_tag "default.jpg", size: 250, class: "avatar-in-my-page" %>
+    <% end %>
+
     <h2><%= @user.name %></h2>
     <span class="glyphicon glyphicon-asterisk color-999"></span><%= link_to "プロフィールを編集する", "/users/edit", class: "color-999" %>
   </div>
@@ -11,11 +16,11 @@
       </div>
       <% @questions.each do |question| %>
         <div class="my-question">
-          <% if question.user.avatar? %>
-              <%= image_tag question.user.avatar.url, size: 50, class: "avatar-in-question-info question-left" %>
-            <% else %>
-              <%= image_tag "default.jpg", size: 50, class: "avatar-in-question-info question-left" %>
-            <% end %>
+          <% unless question.user.avatar.nil? %>
+            <%= image_tag question.user.avatar.url, size: 50, class: "avatar-in-question-info question-left" %>
+          <% else %>
+            <%= image_tag "default.jpg", size: 50, class: "avatar-in-question-info question-left" %>
+          <% end %>
           <%= link_to question.title, question, class: "question-link" %><br>
           <p>by_<%= question.user.name %></p>
           <%= time_ago_in_words(question.created_at) %>前
