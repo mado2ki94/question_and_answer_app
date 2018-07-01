@@ -7,5 +7,6 @@ class Question < ApplicationRecord
   validates :title, presence: true, length: { maximum: 100 }
   validates :content, presence: true, length: { maximum: 10000 }
   validates :user_id, presence: true
+  # 質問の解決or未解決判定用。デフォルトは0、解決後1
   validates :resolution, presence: true
 end

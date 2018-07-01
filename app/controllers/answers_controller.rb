@@ -1,20 +1,12 @@
 class AnswersController < ApplicationController
   before_action :authenticate_user!
-  # before_action :correct_user
 
 
   def create
-    @question = Question.find_by(id: session[:question_id])
-    params[:answer][:question_id] = session[:question_id]
-    params[:answer][:user_id]     = current_user.id
-    @answer = @question.answers.build(params.require(:answer).permit(:content, :question_id, :user_id))
-    if @answer.save
-      flash[:notice] = "回答しました。"
-      redirect_to @question
-    else
-      # render "/users/new"
-      redirect_to @question
-    end
+    @question = Question.find_by(id: params[:answer][:question_id])
+    @answer = @question.answers.build(answer_params)
+    @answer.save ? flash[:notice] = "回答しました。" : flash[:alert] = "失敗しました。"
+    redirect_to @question
   end
 
   def destroy
@@ -28,13 +20,7 @@ class AnswersController < ApplicationController
   private
 
     def answer_params
-      params.require(:answer).permit(:content)
+      params.require(:answer).permit(:content, :question_id, :user_id)
     end
-
-    def correct_user
-      @question = current_user.questions.find_by(id: params[:id])
-      redirect_to root_url if @question.nil?
-    end
-
 
 end

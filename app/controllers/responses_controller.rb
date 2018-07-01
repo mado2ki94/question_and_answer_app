@@ -2,17 +2,11 @@ class ResponsesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @question = Question.find_by(id: session[:question_id])
+    @question = Question.find_by(id: params[:response][:question_id])
     @answer = Answer.find_by(id: params[:response][:answer_id])
-    params[:response][:user_id] = current_user.id
-    params[:response][:question_id] = session[:question_id]
     @response = @answer.responses.build(response_params)
-    if @response.save
-      flash[:notice] = "返信しました。"
-      redirect_to @question
-    else
-      redirect_to @question
-    end
+    flash[:notice] = "返信しました。" if @response.save
+    redirect_to @question
   end
 
   def destroy

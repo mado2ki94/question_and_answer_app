@@ -13,12 +13,4 @@ class ApplicationController < ActionController::Base
     @count_likes = user.likes.count
   end
 
-  # alias_method :devise_current_user, :current_user
-  # def current_user
-  #   if devise_current_user.nil?
-  #     User.new
-  #   else
-  #     User.find_by(id: devise_current_user.id)
-  #   end
-  # end
 end

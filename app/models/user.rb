@@ -34,6 +34,7 @@ class User < ApplicationRecord
     self.likings.include?(answer)
   end
 
+  # like数の上位10人を抽出
   def self.ranking
     self.order('liker DESC').limit(10)
   end

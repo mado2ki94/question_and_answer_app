@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   resources :questions
   resources :answers, only: [:create, :destroy]
   resources :responses, only: [:create, :destroy]
-  patch 'resolutions', to: 'resolutions#close'
+  # patch 'resolutions', to: 'resolutions#close'
+  match '/close', to: 'resolutions#close', via: 'patch'
   resources :likes, only: [:create, :destroy]
 
   if Rails.env.development?

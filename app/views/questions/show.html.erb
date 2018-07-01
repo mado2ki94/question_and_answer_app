@@ -1,13 +1,15 @@
+<% provide :title, "#{@question.title}" %>
 <div class="main">
   <div class="row">
     <div class="col-md-8">
+      <!-- 質問内容 -->
       <div class="question-info">
         <h1>
           <% unless @user.avatar.nil? %>
-              <%= image_tag @user.avatar.url, size: 40, class: "avatar-in-question-info" %>
-            <% else %>
-              <%= image_tag "default.jpg", size: 40, class: "avatar-in-question-info" %>
-            <% end %>
+            <%= image_tag @user.avatar.url, size: 40, class: "avatar-in-question-info" %>
+          <% else %>
+            <%= image_tag "default.jpg", size: 40, class: "avatar-in-question-info" %>
+          <% end %>
           <p class="user-name-in-questions-show"><%= link_to @user.name, @user %></p>
           <p class="posted-time-in-questions-show"><%= time_ago_in_words(@question.created_at) %>前</p><br>
           <p class="question-title-in-questions-show"><%= @question.title %></p>
@@ -17,19 +19,20 @@
         <% else %>
           <p class="question-acceptance-state">（この質問は回答を締め切りました。）</p>
         <% end %>
-        <h1><%= @question.tag %></h1>
         <p class="question-content-in-questions-show"><%= @question.content %></p>
         <% if user_signed_in? && @question.user_id == current_user.id %>
           <% if @question.resolution == 0 %>
-            <p class="question-close-link"><%= link_to "締め切る", "/resolutions", method: :patch, data: { confirm: "質問を締め切りますか？" } %></p>
+            <p class="question-close-link"><%= link_to "締め切る", close_path(@question, question_id: @question.id), method: :patch, data: { confirm: "質問を締め切りますか？" } %></p>
             <p class="question-edit-link"><%= link_to "編集", edit_question_path(@question) %></p>
           <% end %>
           <p class="question-delete-link"><%= link_to "削除", question_path, method: :delete, data: { confirm: "削除しますか？" } %></p>
         <% end %>
+        <!-- 回答一覧 -->
         <div class="answers">
           <p class="answers-title">回答一覧</p>
           <div class="answer">
             <% @question.answers.each do |answer| %>
+            <!-- 回答内容 -->
               <div class="answer-info">
                 <% unless @user.avatar.nil? %>
                   <%= image_tag answer.user.avatar.url, size: 40, class: "avatar-in-answer-info answer-left" %>
@@ -56,6 +59,7 @@
                   <% end %>
                 <% end %>
               </div>
+              <!-- 返信内容 -->
               <div class="responses">
                 <% answer.responses.each do |response| %>
                   <div class="response-info">
@@ -73,10 +77,13 @@
                     <% end %>
                   </div>
                 <% end %>
+                <!-- 返信フォーム -->
                 <div class="response-form">
                   <% if user_signed_in? && @question.resolution == 0 %>
                     <%= form_for @response do |f| %>
-                      <%= f.hidden_field :answer_id, :value => answer.id %>
+                      <%= f.hidden_field :user_id, value: current_user.id %>
+                      <%= f.hidden_field :question_id, value: @question.id %>
+                      <%= f.hidden_field :answer_id, value: answer.id %>
                       <%= f.text_area :content, class: "response-form", autocomplete: "off", placeholder: "返信", class: "response-content-form" %><br>
                       <%= f.submit "返信する", class: "response-submit-btn" %>
                     <% end %>
@@ -86,9 +93,12 @@
             <% end %>
           </div>
         </div>
+        <!-- 回答フォーム -->
         <div class="answer-form">
           <% if user_signed_in? && @question.resolution == 0 %>
             <%= form_for @answer do |f| %>
+              <%= f.hidden_field :question_id, value: @question.id %>
+              <%= f.hidden_field :user_id, value: current_user.id %>
               <%= f.text_area :content, class: "answer-form", autocomplete: "off", placeholder: "回答", class: "answer-content-form" %>
               <%= f.submit "回答する", class: "answer-submit-btn" %>
             <% end %>
@@ -96,6 +106,7 @@
         </div>
       </div>
     </div>
+    <!-- ランキング -->
     <div class="col-md-4">
       <%= render 'shared/ranking' %>
     </div>

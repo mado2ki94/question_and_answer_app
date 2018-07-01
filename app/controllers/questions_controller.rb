@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.page(params[:page]).per(PER)
-    @rankings = User.ranking
+    @rankings  = User.ranking
   end
 
   def new
@@ -20,14 +20,13 @@ class QuestionsController < ApplicationController
       redirect_to root_url
     else
       flash[:alert] = "失敗しました。"
-      render 'static_pages/home'
+      redirect_to new_question_path
     end
   end
 
   def show
-    session[:question_id] = params[:id]
     @question = Question.find_by(id: params[:id])
-    @user = User.find_by(id: @question.user_id)
+    @user     = User.find_by(id: @question.user_id)
     @rankings = User.ranking
     if user_signed_in?
       @answer = current_user.answers.build
@@ -41,13 +40,9 @@ class QuestionsController < ApplicationController
 
   def update
     @question = Question.find_by(id: params[:id])
-    if @question.update_attributes(question_params)
-      flash[:notice] = "編集しました。"
-      redirect_to root_url
-    else
-      flash[:alert] = "失敗しました。"
-      render 'static_pages/home'
-    end
+    @question.update_attributes(question_params) ? flash[:notice] = "編集しました。"
+                                                 : flash[:alert] = "失敗しました。タイトルもしくは本文が空欄のようです。"
+    redirect_to @question
   end
 
   def destroy
