@@ -7,19 +7,13 @@ RSpec.describe User, type: :model do
   end
 
   # 名前がなければ無効な状態であること
-  it "is invalid without a name" do
-    expect(FactoryGirl.build(:user, name: nil)).to be_invalid
-  end
+  it { is_expected.to validate_presence_of :name }
 
   # メールアドレスがなければ無効な状態であること
-  it "is invalid without a email" do
-    expect(FactoryGirl.build(:user, email: nil)).to be_invalid
-  end
+  it { is_expected.to validate_presence_of :email }
 
   # パスワードがなければ無効な状態であること
-  it "is invalid without a password" do
-    expect(FactoryGirl.build(:user, password: nil)).to be_invalid
-  end
+  it { is_expected.to validate_presence_of :password }
 
   # 6文字未満のパスワードは無効であること(5文字の場合)
   it "is invalid when password is 5 characters" do
@@ -32,4 +26,13 @@ RSpec.describe User, type: :model do
   it "is valid when password is 6 characters" do
     expect(FactoryGirl.build(:user, password: "a" * 6)).to be_valid
   end
+
+  # ユーザーは多くの質問をもつ
+  it { is_expected.to have_many :questions }
+
+  # ユーザーは多くの回答をもつ
+  it { is_expected.to have_many :answers }
+
+  # ユーザーは多くの返信をもつ
+  it { is_expected.to have_many :responses }
 end

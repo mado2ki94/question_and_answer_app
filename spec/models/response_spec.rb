@@ -7,11 +7,7 @@ RSpec.describe Response, type: :model do
   end
 
   # contentがなければ無効な状態であること
-  it "is invalid without a content" do
-    response = FactoryGirl.build(:response, content: nil)
-    response.save
-    expect(response.errors[:content]).to include("を入力してください")
-  end
+  it { is_expected.to validate_presence_of :content }
 
   # contentが10001字以上であれば無効な状態であること(10001字の場合)
   it "is invalid when content has 10001 characters" do
@@ -26,23 +22,20 @@ RSpec.describe Response, type: :model do
   end
 
   # user_idがなければ無効な状態であること
-  it "is invalid without a user_id" do
-    response = FactoryGirl.build(:response, user_id: nil)
-    response.save
-    expect(response.errors[:user_id]).to include("を入力してください")
-  end
+  it { is_expected.to validate_presence_of :user_id }
 
   # question_idがなければ無効な状態であること
-  it "is invalid without a question_id" do
-    response = FactoryGirl.build(:response, question_id: nil)
-    response.save
-    expect(response.errors[:question_id]).to include("を入力してください")
-  end
+  it { is_expected.to validate_presence_of :question_id }
 
   # answer_idがなければ無効な状態であること
-  it "is invalid without a response" do
-    response = FactoryGirl.build(:response, answer_id: nil)
-    response.save
-    expect(response.errors[:answer_id]).to include("を入力してください")
-  end
+  it { is_expected.to validate_presence_of :answer_id }
+
+  # 返信はユーザーに属している
+  it { is_expected.to belong_to :user }
+
+  # 返信は質問に属している
+  it { is_expected.to belong_to :question }
+
+  # 返信は回答に属している
+  it { is_expected.to belong_to :answer }
 end

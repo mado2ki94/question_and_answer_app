@@ -7,18 +7,10 @@ RSpec.describe Like, type: :model do
   end
 
   # user_idがなければ無効な状態であること
-  it "is valid without a user id" do
-    like = FactoryGirl.build(:like, user_id: nil)
-    like.save
-    expect(like.errors[:user_id]).to include("を入力してください")
-  end
+  it { is_expected.to validate_presence_of :user_id }
 
   # answer_idがなければ無効な状態であること
-  it "is valid without a answer id" do
-    like = FactoryGirl.build(:like, answer_id: nil)
-    like.save
-    expect(like.errors[:answer_id]).to include("を入力してください")
-  end
+  it { is_expected.to validate_presence_of :answer_id }
 
   # 同じ組み合わせのlikeは無効な状態であること
   # it "is valid with a duplicate combination" do

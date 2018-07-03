@@ -7,30 +7,23 @@ RSpec.describe Question, type: :model do
   end
 
   # タイトルがなければ無効な状態であること
-  it "is invalid without a title" do
-    question = FactoryGirl.build(:question, title: nil)
-    question.valid?
-    expect(question.errors[:title]).to include("を入力してください")
-  end
+  it { is_expected.to validate_presence_of :title }
 
   # 質問内容(content)がなければ無効な状態であること
-  it "is invalid without a content" do
-    question = FactoryGirl.build(:question, content: nil)
-    question.valid?
-    expect(question.errors[:content]).to include("を入力してください")
-  end
+  it { is_expected.to validate_presence_of :content }
 
   # user_idがなければ無効な状態であること
-  it "is invalid without a user_id" do
-    question = FactoryGirl.build(:question, user_id: nil)
-    question.valid?
-    expect(question.errors[:user_id]).to include("を入力してください")
-  end
+  it { is_expected.to validate_presence_of :user_id }
 
   # resolutionがなければ無効な状態であること
-  it "is invalid without a resolution" do
-    question = FactoryGirl.build(:question, resolution: nil)
-    question.valid?
-    expect(question.errors[:resolution]).to include("を入力してください")
-  end
+  it { is_expected.to validate_presence_of :resolution }
+
+  # 質問は多くの回答をもつ
+  it { is_expected.to have_many :answers }
+
+  # 質問は多くの返信をもつ
+  it { is_expected.to have_many :responses }
+
+  # 質問はユーザーに属している
+  it { is_expected.to belong_to :user }
 end

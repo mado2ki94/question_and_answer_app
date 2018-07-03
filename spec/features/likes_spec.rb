@@ -1,19 +1,17 @@
 require 'rails_helper'
 
 RSpec.feature "Likes", type: :feature do
+  include LoginSupport
+  let(:user) { FactoryGirl.create(:user) }
+  let(:other_user) { FactoryGirl.create(:user) }
+
   # ユーザーは回答をいいねする
   scenario "user likes an answer" do
-    user = FactoryGirl.create(:user)
-    other_user = FactoryGirl.create(:user)
     question = FactoryGirl.create(:question, user_id: user.id)
     answer = FactoryGirl.create(:answer, question_id: question.id, user_id: other_user.id)
 
     expect {
-      visit root_path
-      click_link "ログイン"
-      fill_in "Eメール", with: user.email
-      fill_in "パスワード", with: user.password
-      click_button "ログイン"
+      sign_in_as user
 
       visit "questions/#{question.id}"
       click_button "いいね"
@@ -24,18 +22,12 @@ RSpec.feature "Likes", type: :feature do
 
   # ユーザーは回答へのいいねを取り消す
   scenario "user unlikes an answer" do
-    user = FactoryGirl.create(:user)
-    other_user = FactoryGirl.create(:user)
     question = FactoryGirl.create(:question, user_id: user.id)
     answer = FactoryGirl.create(:answer, question_id: question.id, user_id: other_user.id)
     like = FactoryGirl.create(:like, user_id: user.id, answer_id: answer.id)
 
     expect {
-      visit root_path
-      click_link "ログイン"
-      fill_in "Eメール", with: user.email
-      fill_in "パスワード", with: user.password
-      click_button "ログイン"
+      sign_in_as user
 
       visit "questions/#{question.id}"
       click_button "いいね済み"

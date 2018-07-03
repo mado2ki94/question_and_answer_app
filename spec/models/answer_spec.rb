@@ -7,11 +7,7 @@ RSpec.describe Answer, type: :model do
   end
 
   # contentがなければ無効な状態であること
-  it "is invalid without a content" do
-    answer = FactoryGirl.build(:answer, content: nil)
-    answer.save
-    expect(answer.errors[:content]).to include("を入力してください")
-  end
+  it { is_expected.to validate_presence_of :content }
 
   # contentが10001字以上であれば無効な状態であること(10001字の場合)
   it "is invalid when content has 10001 characters" do
@@ -26,17 +22,17 @@ RSpec.describe Answer, type: :model do
   end
 
   # user_idがなければ無効な状態であること
-  it "is invalid without a user_id" do
-    answer = FactoryGirl.build(:answer, user_id: nil)
-    answer.save
-    expect(answer.errors[:user_id]).to include("を入力してください")
-  end
+  it { is_expected.to validate_presence_of :user_id }
 
   # question_idがなければ無効な状態であること
-  it "is invalid without a question_id" do
-    answer = FactoryGirl.build(:answer, question_id: nil)
-    answer.save
-    expect(answer.errors[:question_id]).to include("を入力してください")
-  end
+  it { is_expected.to validate_presence_of :question_id }
 
+  # 回答は多くの返信を持つ
+  it { is_expected.to have_many :responses }
+
+  # 回答はユーザーに属している
+  it { is_expected.to belong_to :user }
+
+  # 回答は質問に属している
+  it { is_expected.to belong_to :question }
 end

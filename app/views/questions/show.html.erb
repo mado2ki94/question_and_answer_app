@@ -84,7 +84,7 @@
                       <%= f.hidden_field :user_id, value: current_user.id %>
                       <%= f.hidden_field :question_id, value: @question.id %>
                       <%= f.hidden_field :answer_id, value: answer.id %>
-                      <%= f.text_area :content, class: "response-form", autocomplete: "off", placeholder: "返信", class: "response-content-form" %><br>
+                      <%= f.text_area :content, class: "response-form response-content-form", autocomplete: "off", placeholder: "返信" %><br>
                       <%= f.submit "返信する", class: "response-submit-btn" %>
                     <% end %>
                   <% end %>
@@ -99,7 +99,7 @@
             <%= form_for @answer do |f| %>
               <%= f.hidden_field :question_id, value: @question.id %>
               <%= f.hidden_field :user_id, value: current_user.id %>
-              <%= f.text_area :content, class: "answer-form", autocomplete: "off", placeholder: "回答", class: "answer-content-form" %>
+              <%= f.text_area :content, class: "answer-form answer-content-form", autocomplete: "off", placeholder: "回答" %>
               <%= f.submit "回答する", class: "answer-submit-btn" %>
             <% end %>
           <% end %>
