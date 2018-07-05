@@ -441,6 +441,114 @@ footer {
   }
 }
 
+// パスワード変更ページ
+.users-change-password {
+  margin: auto;
+  width: 60%;
+  h2 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+  }
+  .users-change-password-content {
+    padding-left: 20%;
+  }
+  .users-change-password-form {
+    margin-bottom: 10px;
+    width: 70%;
+  }
+  .users-change-password-btn {
+    width: 270px;
+    height: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    background-color: #ff8c00;
+    border-radius: 20px;
+  }
+}
+
+// パスワードの再設定メール送信ページ
+.users-forget-password {
+  margin: auto;
+  width: 60%;
+  h2 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+  }
+  .users-forget-password-content {
+    padding-left: 20%;
+  }
+  .users-forget-password-form {
+    margin-bottom: 10px;
+    width: 70%;
+  }
+  .users-forget-password-btn {
+    width: 270px;
+    height: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    background-color: #ff8c00;
+    border-radius: 20px;
+  }
+}
+
+// アカウント凍結解除メール送信ページ
+.users-unlock {
+  margin: auto;
+  width: 60%;
+  h2 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+  }
+  .users-unlock-content {
+    padding-left: 20%;
+  }
+  .users-unlock-form {
+    margin-bottom: 10px;
+    width: 70%;
+  }
+  .users-unlock-btn {
+    width: 270px;
+    height: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    background-color: #ff8c00;
+    border-radius: 20px;
+  }
+}
+
+// アカウント確認メール再送ページ
+.users-confirmation {
+  margin: auto;
+  width: 60%;
+  h2 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+  }
+  .users-confirmation-content {
+    padding-left: 20%;
+  }
+  .users-confirmation-form {
+    margin-bottom: 10px;
+    width: 70%;
+  }
+  .users-confirmation-btn {
+    width: 200px;
+    height: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    background-color: #ff8c00;
+    border-radius: 20px;
+  }
+}
+
 // 登録情報編集ページ
 .users-edit {
   margin: auto;

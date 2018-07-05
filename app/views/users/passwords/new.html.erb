@@ -1,17 +1,20 @@
 <% provide :title, "パスワードを忘れましたか?" %>
-<h2><%= t('.forgot_your_password') %></h2>
+<div class="users-forget-password">
+  <h2><%= t('.forgot_your_password') %></h2>
+  <div class="users-forget-password-content">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "users-forget-password-form" %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="actions">
+        <%= f.submit t('.send_me_reset_password_instructions'), class: "users-forget-password-btn" %>
+      </div>
+    <% end %>
+
+    <%= render "users/shared/links" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit t('.send_me_reset_password_instructions') %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>
