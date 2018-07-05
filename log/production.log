@@ -1,0 +1,125 @@
+D, [2018-07-05T18:44:53.731554 #82555] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+D, [2018-07-05T18:44:53.734133 #82555] DEBUG -- :   [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+D, [2018-07-05T18:44:53.739619 #82555] DEBUG -- :   [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-07-05T18:44:53.758332 #82555] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+I, [2018-07-05T18:44:53.758484 #82555]  INFO -- : Migrating to DeviseCreateUsers (20180615012104)
+D, [2018-07-05T18:44:53.761985 #82555] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-07-05T18:44:53.764096 #82555] DEBUG -- :   [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "failed_attempts" integer DEFAULT 0 NOT NULL, "unlock_token" varchar, "locked_at" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+D, [2018-07-05T18:44:53.765090 #82555] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+D, [2018-07-05T18:44:53.766430 #82555] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+D, [2018-07-05T18:44:53.768108 #82555] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")[0m
+D, [2018-07-05T18:44:53.769956 #82555] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_unlock_token" ON "users" ("unlock_token")[0m
+D, [2018-07-05T18:44:53.772892 #82555] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180615012104"]]
+D, [2018-07-05T18:44:53.774972 #82555] DEBUG -- :   [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+I, [2018-07-05T18:44:53.775096 #82555]  INFO -- : Migrating to AddNameToUsers (20180615022519)
+D, [2018-07-05T18:44:53.776806 #82555] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-07-05T18:44:53.778945 #82555] DEBUG -- :   [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "users" ADD "name" varchar[0m
+D, [2018-07-05T18:44:53.780081 #82555] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180615022519"]]
+D, [2018-07-05T18:44:53.781833 #82555] DEBUG -- :   [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+I, [2018-07-05T18:44:53.781943 #82555]  INFO -- : Migrating to CreateQuestions (20180615064222)
+D, [2018-07-05T18:44:53.787583 #82555] DEBUG -- :   [1m[35m (3.8ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-07-05T18:44:53.789430 #82555] DEBUG -- :   [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "questions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "tag" varchar, "content" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_047ab75908"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+D, [2018-07-05T18:44:53.790609 #82555] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")[0m
+D, [2018-07-05T18:44:53.791894 #82555] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180615064222"]]
+D, [2018-07-05T18:44:53.795957 #82555] DEBUG -- :   [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+I, [2018-07-05T18:44:53.796080 #82555]  INFO -- : Migrating to AddResolutionToQuestions (20180615065429)
+D, [2018-07-05T18:44:53.798691 #82555] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-07-05T18:44:53.800813 #82555] DEBUG -- :   [1m[35m (1.7ms)[0m  [1m[35mALTER TABLE "questions" ADD "resolution" integer[0m
+D, [2018-07-05T18:44:53.803083 #82555] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180615065429"]]
+D, [2018-07-05T18:44:53.806317 #82555] DEBUG -- :   [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+I, [2018-07-05T18:44:53.806450 #82555]  INFO -- : Migrating to AddIndexToQuestionsUserId (20180616114425)
+D, [2018-07-05T18:44:53.807853 #82555] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-07-05T18:44:53.810111 #82555] DEBUG -- :   [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX "index_questions_on_user_id_and_created_at" ON "questions" ("user_id", "created_at")[0m
+D, [2018-07-05T18:44:53.811576 #82555] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180616114425"]]
+D, [2018-07-05T18:44:53.822989 #82555] DEBUG -- :   [1m[35m (11.0ms)[0m  [1m[36mcommit transaction[0m
+I, [2018-07-05T18:44:53.823130 #82555]  INFO -- : Migrating to ChangeResolutionColumnsOnQuestions (20180616115417)
+D, [2018-07-05T18:44:53.824623 #82555] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-07-05T18:44:53.827298 #82555] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aquestions" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "tag" varchar DEFAULT NULL, "content" text DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "resolution" integer DEFAULT NULL)[0m
+D, [2018-07-05T18:44:53.829912 #82555] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_aquestions_on_user_id_and_created_at" ON "aquestions" ("user_id", "created_at")[0m
+D, [2018-07-05T18:44:53.831209 #82555] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_aquestions_on_user_id" ON "aquestions" ("user_id")[0m
+D, [2018-07-05T18:44:53.832153 #82555] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aquestions" ("id","title","tag","content","user_id","created_at","updated_at","resolution")
+                     SELECT "id","title","tag","content","user_id","created_at","updated_at","resolution" FROM "questions"[0m
+D, [2018-07-05T18:44:53.832909 #82555] DEBUG -- :   [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "questions"[0m
+D, [2018-07-05T18:44:53.834875 #82555] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "questions" ("id" integer NOT NULL PRIMARY KEY, "title" varchar DEFAULT NULL, "tag" varchar DEFAULT NULL, "content" text DEFAULT NULL, "user_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "resolution" integer DEFAULT 0)[0m
+D, [2018-07-05T18:44:53.837262 #82555] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_questions_on_user_id" ON "questions" ("user_id")[0m
+D, [2018-07-05T18:44:53.840216 #82555] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_questions_on_user_id_and_created_at" ON "questions" ("user_id", "created_at")[0m
+D, [2018-07-05T18:44:53.841442 #82555] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("id","title","tag","content","user_id","created_at","updated_at","resolution")
+                     SELECT "id","title","tag","content","user_id","created_at","updated_at","resolution" FROM "aquestions"[0m
+D, [2018-07-05T18:44:53.841902 #82555] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aquestions"[0m
+D, [2018-07-05T18:44:53.843296 #82555] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180616115417"]]
+D, [2018-07-05T18:44:53.846585 #82555] DEBUG -- :   [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+I, [2018-07-05T18:44:53.846699 #82555]  INFO -- : Migrating to CreateAnswers (20180617101636)
+D, [2018-07-05T18:44:53.848240 #82555] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-07-05T18:44:53.850035 #82555] DEBUG -- :   [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "answers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "user_id" integer, "question_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_584be190c2"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_3d5ed4418f"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+)[0m
+D, [2018-07-05T18:44:53.850728 #82555] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_answers_on_user_id" ON "answers" ("user_id")[0m
+D, [2018-07-05T18:44:53.851680 #82555] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_answers_on_question_id" ON "answers" ("question_id")[0m
+D, [2018-07-05T18:44:53.853095 #82555] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_answers_on_user_id_and_created_at" ON "answers" ("user_id", "created_at")[0m
+D, [2018-07-05T18:44:53.854842 #82555] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_answers_on_question_id_and_created_at" ON "answers" ("question_id", "created_at")[0m
+D, [2018-07-05T18:44:53.856025 #82555] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180617101636"]]
+D, [2018-07-05T18:44:53.860513 #82555] DEBUG -- :   [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+I, [2018-07-05T18:44:53.860666 #82555]  INFO -- : Migrating to AddAvatarToUsers (20180618135002)
+D, [2018-07-05T18:44:53.863322 #82555] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-07-05T18:44:53.864438 #82555] DEBUG -- :   [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "avatar" varchar[0m
+D, [2018-07-05T18:44:53.865480 #82555] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180618135002"]]
+D, [2018-07-05T18:44:53.867531 #82555] DEBUG -- :   [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+I, [2018-07-05T18:44:53.867649 #82555]  INFO -- : Migrating to CreateResponses (20180619015927)
+D, [2018-07-05T18:44:53.869371 #82555] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-07-05T18:44:53.871312 #82555] DEBUG -- :   [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "responses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "user_id" integer, "question_id" integer, "answer_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_2bd9a0753e"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_325af149a3"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+, CONSTRAINT "fk_rails_f1c17bfc3d"
+FOREIGN KEY ("answer_id")
+  REFERENCES "answers" ("id")
+)[0m
+D, [2018-07-05T18:44:53.872123 #82555] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_responses_on_user_id" ON "responses" ("user_id")[0m
+D, [2018-07-05T18:44:53.873099 #82555] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_responses_on_question_id" ON "responses" ("question_id")[0m
+D, [2018-07-05T18:44:53.874453 #82555] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_responses_on_answer_id" ON "responses" ("answer_id")[0m
+D, [2018-07-05T18:44:53.875969 #82555] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_responses_on_user_id_and_created_at" ON "responses" ("user_id", "created_at")[0m
+D, [2018-07-05T18:44:53.878113 #82555] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_responses_on_question_id_and_created_at" ON "responses" ("question_id", "created_at")[0m
+D, [2018-07-05T18:44:53.879895 #82555] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_responses_on_answer_id_and_created_at" ON "responses" ("answer_id", "created_at")[0m
+D, [2018-07-05T18:44:53.881514 #82555] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180619015927"]]
+D, [2018-07-05T18:44:53.885620 #82555] DEBUG -- :   [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+I, [2018-07-05T18:44:53.885733 #82555]  INFO -- : Migrating to CreateLikes (20180621145513)
+D, [2018-07-05T18:44:53.887604 #82555] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-07-05T18:44:53.889411 #82555] DEBUG -- :   [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "answer_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_1e09b5dabf"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_ac34379225"
+FOREIGN KEY ("answer_id")
+  REFERENCES "answers" ("id")
+)[0m
+D, [2018-07-05T18:44:53.890710 #82555] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_likes_on_user_id" ON "likes" ("user_id")[0m
+D, [2018-07-05T18:44:53.891875 #82555] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_likes_on_answer_id" ON "likes" ("answer_id")[0m
+D, [2018-07-05T18:44:53.893042 #82555] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_likes_on_user_id_and_answer_id" ON "likes" ("user_id", "answer_id")[0m
+D, [2018-07-05T18:44:53.895960 #82555] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180621145513"]]
+D, [2018-07-05T18:44:53.898467 #82555] DEBUG -- :   [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+I, [2018-07-05T18:44:53.898579 #82555]  INFO -- : Migrating to AddLikerToUsers (20180622095736)
+D, [2018-07-05T18:44:53.902045 #82555] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-07-05T18:44:53.903675 #82555] DEBUG -- :   [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "liker" integer DEFAULT 0[0m
+D, [2018-07-05T18:44:53.904774 #82555] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180622095736"]]
+D, [2018-07-05T18:44:53.906532 #82555] DEBUG -- :   [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+I, [2018-07-05T18:44:53.906655 #82555]  INFO -- : Migrating to AddColumnsToUsers (20180624041756)
+D, [2018-07-05T18:44:53.910379 #82555] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-07-05T18:44:53.911685 #82555] DEBUG -- :   [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "uid" varchar[0m
+D, [2018-07-05T18:44:53.912399 #82555] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "provider" varchar[0m
+D, [2018-07-05T18:44:53.913227 #82555] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "nickname" varchar[0m
+D, [2018-07-05T18:44:53.913911 #82555] DEBUG -- :   [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "location" varchar[0m
+D, [2018-07-05T18:44:53.914579 #82555] DEBUG -- :   [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "image" varchar[0m
+D, [2018-07-05T18:44:53.915739 #82555] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180624041756"]]
+D, [2018-07-05T18:44:53.917452 #82555] DEBUG -- :   [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+D, [2018-07-05T18:44:53.921484 #82555] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+D, [2018-07-05T18:44:53.930554 #82555] DEBUG -- :   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+D, [2018-07-05T18:44:53.932229 #82555] DEBUG -- :   [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "production"], ["created_at", "2018-07-05 09:44:53.930894"], ["updated_at", "2018-07-05 09:44:53.930894"]]
+D, [2018-07-05T18:44:53.934193 #82555] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
