@@ -2,13 +2,24 @@
   <h2><span class="glyphicon glyphicon-user"></span>　ユーザーランキング</h2>
   <% @rankings.each_with_index do |user, index| %>
   <div class="rank_in_user">
-      <div class="rank_number"><%= index + 1 %></div>
+      <div class="rank_number">
+        <% case index %>
+        <% when 0 %>
+          <%= image_tag "q&a_app_gold_user.jpg", size:26, class: "trophy" %>
+        <% when 1 %>
+          <%= image_tag "q&a_app_silver_user.jpg", size:26, class: "trophy" %>
+        <% when 2 %>
+          <%= image_tag "q&a_app_bronze_user.jpg", size:26, class: "trophy" %>
+        <% else %>
+          <%= index + 1 %>
+        <% end %>
+      </div>
       <% if user.avatar? %>
         <%= image_tag user.avatar.url, size: 30 %>
       <% else %>
         <%= image_tag "default.jpg", size: 30 %>
       <% end %>
-      <div class="rank_in_user_name"><%= user.name %></div>
+      <div class="rank_in_user_name"><%= link_to user.name, user %></div>
       <div class="rank_in_user_liker"><%= user.liker %>いいね</div>
   </div>
   <% end %>

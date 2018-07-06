@@ -8,7 +8,9 @@
     <% end %>
 
     <h2><%= @user.name %></h2>
-    <span class="glyphicon glyphicon-asterisk color-999"></span><%= link_to "プロフィールを編集する", "/users/edit", class: "color-999" %>
+    <% if @user == current_user %>
+      <span class="glyphicon glyphicon-asterisk color-999"></span><%= link_to "プロフィールを編集する", "/users/edit", class: "color-999" %>
+    <% end %>
   </div>
   <div class="col-md-9 my-page-right">
     <div class="my-questions">

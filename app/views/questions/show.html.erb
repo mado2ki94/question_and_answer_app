@@ -94,16 +94,18 @@
           </div>
         </div>
         <!-- 回答フォーム -->
-        <div class="answer-form">
-          <% if user_signed_in? && @question.resolution == 0 %>
-            <%= form_for @answer do |f| %>
-              <%= f.hidden_field :question_id, value: @question.id %>
-              <%= f.hidden_field :user_id, value: current_user.id %>
-              <%= f.text_area :content, class: "answer-form answer-content-form", autocomplete: "off", placeholder: "回答" %>
-              <%= f.submit "回答する", class: "answer-submit-btn" %>
+        <% unless @user == current_user %>
+          <div class="answer-form">
+            <% if user_signed_in? && @question.resolution == 0 %>
+              <%= form_for @answer do |f| %>
+                <%= f.hidden_field :question_id, value: @question.id %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <%= f.text_area :content, class: "answer-form answer-content-form", autocomplete: "off", placeholder: "回答" %>
+                <%= f.submit "回答する", class: "answer-submit-btn" %>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
     </div>
     <!-- ランキング -->

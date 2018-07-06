@@ -14,6 +14,12 @@ body {
   background-color: #f8faf7;
 }
 
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
 .main {
   width: 100%;
 }
@@ -54,6 +60,7 @@ header {
   height: 60px;
   color: white;
   background-color: #ed6d35;
+  box-shadow: 0 0 5px 1px #ed6d35;
   line-height: 60px;
   #logo {
     float: left;
@@ -71,28 +78,28 @@ header {
   .navbar-nav {
     height: 60px;
     li {
-      a  {
+      a {
         font-size: 14px;
         color: white;
-        padding: 0 3px;
-        margin: 15px;
-        height: 30px;
-        line-height: 30px;
+        padding: 0 15px;
+        margin: 10px;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 20px;
+
+        transition: 0.20s;
         &:hover {
-          text-decoration: underline;
-          background-color: #ed6d35;
+          font-weight: bold;
+          background-color: #ffdab9;
+          color: #ed6d35;
+          box-shadow: inset 0 0 5px 2px #ed6d35;
         }
       }
       .dropdown-toggle {
         background-color: #ed6d35;
-        .open {
-          background-color: #ed6d35;
-        }
-        &:hover {
-          background-color: #ed6d35;
-        }
         &:focus {
-          background-color: #ed6d35;
+          background-color: #ffdab9;
+          color: black;
         }
       }
       .dropdown, .dropdown-menu {
@@ -112,7 +119,9 @@ header {
             font-weight: normal;
             padding-left: 15px;
             line-height: 30px;
-            // text-decoration: none;
+            &:hover {
+              box-shadow: none;
+            }
           }
           .dropdown-menu-list {
             padding-left: 15px;
@@ -160,6 +169,43 @@ footer {
   text-align: center;
   font-size: 16px;
 }
+
+.topic-question {
+  height: 300px;
+  margin-top: 30px;
+  margin-left: 100px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  display: block;
+  box-shadow: 0 6px 4px -4px rgba(0, 0, 0, 0.15);
+  transition: 0.15s;
+  .topic-question:hover {
+  opacity: 0.85;
+  }
+  .topic-image {
+    float: left;
+    width: 60%;
+    height: 100%;
+  }
+  .topic-content {
+    float: right;
+    width: 40%;
+    height: 100%;
+    border-left: 1px solid #ccc;
+    text-align: center;
+    color: #ed6d35;
+    .topic-title {
+      padding: 50px 0;
+      letter-spacing: 1px;
+    }
+    .topic-text {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+  }
+}
+
+
 
 // 質問一覧ページ
 .questions {
@@ -219,10 +265,19 @@ footer {
       color: #a9a9a9;
       font-size: 24px;
       font-weight: bold;
+      .trophy {
+        padding-left: 2px;
+      }
     }
     .rank_in_user_name {
       display: inline-block;
       padding-left: 10px;
+      a {
+        color: black;
+        &:hover {
+          color: black;
+        }
+      }
     }
     .rank_in_user_liker {
       float: right;
@@ -235,7 +290,7 @@ footer {
 // 質問投稿ページ
 .question-form {
   width: 99%;
-  margin: auto;
+  margin: 20px auto;
   .title-form {
     height: 40px;
     width: 100%;
