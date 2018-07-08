@@ -13,11 +13,9 @@ User.create!(name:  "Example User",
               password_confirmation: password)
 end
 
-users = User.order(:created_at).take(6)
-20.times do
-  title   = Faker::Lorem.sentence(3)
-  content = Faker::Lorem.sentence(50)
-  users.each do |user|
-    user.questions.create!(title: title ,content: content, resolution: 0)
-  end
+users = User.all
+title   = Faker::Lorem.sentence(6)
+content = Faker::Lorem.sentence(50)
+users.each do |user|
+  user.questions.create!(title: title ,content: content, resolution: 0)
 end

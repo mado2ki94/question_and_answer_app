@@ -158,7 +158,12 @@ footer {
   font-size: 40px;
   font-weight: bold;
   p {
-    padding-top: 430px;
+    display: inline-block;
+    margin-top: 130px;
+    padding: 0 30px;
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: inset 10px rgba(0, 0, 0, 0.8);
+    border-radius: 30px;
   }
 }
 
