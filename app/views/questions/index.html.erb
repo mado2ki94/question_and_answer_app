@@ -14,7 +14,11 @@
             <%= image_tag "default.jpg", size: 50, class: "avatar-in-question-info question-left" %>
           <% end %>
 
-          <%= link_to question.title, question, class: "question-link" %><br>
+          <% if question.title.size >= 40 %>
+            <%= link_to "#{question.title[0,37]}...", question, class: "question-link" %><br>
+          <% else %>
+            <%= link_to question.title, question, class: "question-link" %><br>
+          <% end %>
           <p>by_<%= question.user.name %></p>
           <%= time_ago_in_words(question.created_at) %>前
         </div>
