@@ -28,12 +28,33 @@ class User < ApplicationRecord
   def unlike(answer)
     like = self.likes.find_by(answer_id: answer.id)
     like.destroy if like
-    self.liker -= 1
+    answer.user.liker -= 1
     answer.user.save
   end
 
   def like?(answer)
     self.likings.include?(answer)
+  end
+
+  def favorite(question)
+    self.favos.find_or_create_by(question_id: questoin.id)
+    question.liker += 1
+    qusetion.save
+    question.user.liker += 1
+    question.user.save
+  end
+
+  def unfavorite(question)
+    favo = self.favos.find_by(question_id: question.id)
+    favo.destroy if favo
+    question.liker -= 1
+    qusetion.save
+    question.user.liker -= 1
+    question.user.save
+  end
+
+  def favorite?(question)
+    self.favoritings.include?(question)
   end
 
   # like数の上位10人を抽出
