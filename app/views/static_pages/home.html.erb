@@ -1,11 +1,8 @@
 <% provide :title, "Fiita" %>
 <% unless user_signed_in? %>
   <div class="welcome">
-    <p>Welcome to Fiita!!</p>
-  </div>
-  <div class="explain">
-    <p>サイトの説明文</p>
-    <%= link_to "新規登録", "/users/sign_up", class: "btn btn-warning" %>
+    <p>Welcome to Fiita!!</p><br>
+    <%= link_to "新規登録", "/users/sign_up", class: "btn btn-signup" %>
   </div>
 <% end %>
 <div class="main">
