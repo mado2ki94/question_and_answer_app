@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'favorites/create'
+  get 'favorites/destroy'
   get 'likes/create'
   get 'likes/destroy'
   get 'responses/create'
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
   # patch 'resolutions', to: 'resolutions#close'
   match '/close', to: 'resolutions#close', via: 'patch'
   resources :likes, only: [:create, :destroy]
+  resources :favorites, only: [:create, :destroy]
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"

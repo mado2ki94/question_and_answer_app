@@ -19,6 +19,24 @@
         <% else %>
           <p class="question-acceptance-state">（この質問は回答を締め切りました。）</p>
         <% end %>
+        <!-- 質問へのいいね -->
+        <% if user_signed_in? %>
+          <% if current_user.favorite?(@question) %>
+            <%= form_for current_user.favorites.find_by(question_id: @question.id), method: "delete" do |f| %>
+              <%= hidden_field_tag :question_id, @question.id %>
+              <%= button_tag type: "submit", class: "unfavorite-btn" do %>
+                <span class="glyphicon glyphicon-ok"><span class="liker-number"><%= @question.liker %></span>
+              <% end %>
+            <% end %>
+          <% else %>
+            <%= form_for current_user.favorites.build, method: "post" do |f| %>
+              <%= hidden_field_tag :question_id, @question.id %>
+              <%= button_tag type: "submit", class: "favorite-btn" do %>
+                <span class="glyphicon glyphicon-heart-empty"><span class="liker-number"><%= @question.liker %></span>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
         <p class="question-content-in-questions-show"><%= @question.content %></p>
         <% if user_signed_in? && @question.user_id == current_user.id %>
           <% if @question.resolution == 0 %>
