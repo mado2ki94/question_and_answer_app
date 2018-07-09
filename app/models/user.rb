@@ -21,6 +21,7 @@ class User < ApplicationRecord
     true
   end
 
+  # 回答へのいいね
   def like(answer)
     self.likes.find_or_create_by(answer_id: answer.id)
     answer.user.liker += 1
@@ -38,19 +39,20 @@ class User < ApplicationRecord
     self.likings.include?(answer)
   end
 
+  # 質問へのいいね
   def favorite(question)
-    self.favos.find_or_create_by(question_id: questoin.id)
+    self.favorites.find_or_create_by(question_id: question.id)
     question.liker += 1
-    qusetion.save
+    question.save
     question.user.liker += 1
     question.user.save
   end
 
   def unfavorite(question)
-    favo = self.favos.find_by(question_id: question.id)
-    favo.destroy if favo
+    favorite = self.favorites.find_by(question_id: question.id)
+    favorite.destroy if favorite
     question.liker -= 1
-    qusetion.save
+    question.save
     question.user.liker -= 1
     question.user.save
   end
