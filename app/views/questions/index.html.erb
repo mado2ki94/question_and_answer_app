@@ -4,7 +4,11 @@
     <div class="col-md-8">
       <div class="questions">
         <div class="questions-title">
-          <h4>　<span class="glyphicon glyphicon-align-left">　新着の質問一覧</h4>
+          <% if params[:search] %>
+            <h4>　<span class="glyphicon glyphicon-align-left">　「<%= params[:search] %>」の検索結果</h4>
+          <% else %>
+            <h4>　<span class="glyphicon glyphicon-align-left">　新着の質問一覧</h4>
+          <% end %>
         </div>
         <% @questions.each do |question| %>
         <div class="question">

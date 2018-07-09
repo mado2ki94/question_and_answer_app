@@ -264,7 +264,7 @@ footer {
   }
 }
 
-.ranking {
+.user_ranking, .question_ranking {
   background-color: white;
   width: 90%;
   margin-top: 30px;
@@ -306,15 +306,15 @@ footer {
       margin-right: 20px;
     }
   }
-  .question-link-in-ranking {
-    // font-size: 12px;
-  }
 }
 
 // 検索窓
 .question-search {
   background-color: white;
   width: 90%;
+  padding-bottom: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   h2 {
     font-size: 16px;
     padding: 30px 30px 10px 30px;
@@ -374,7 +374,7 @@ footer {
 
 // 質問詳細ページ
 .question-info {
-  margin-top: 50px;
+  margin-top: 30px;
   margin-left: 100px;
   margin-bottom: 50px;
   padding: 10px 32px 32px 32px;
