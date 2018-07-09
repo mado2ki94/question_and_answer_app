@@ -10,4 +10,9 @@ class Question < ApplicationRecord
   validates :user_id, presence: true
   # 質問の解決or未解決判定用。デフォルトは0、解決後1
   validates :resolution, presence: true
+
+  # like数の上位10を抽出
+  def self.ranking
+    self.order('liker DESC').limit(10)
+  end
 end

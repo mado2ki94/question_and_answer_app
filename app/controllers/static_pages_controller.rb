@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
 
   def home
     @questions = Question.page(params[:page]).per(PER)
-    @rankings = User.ranking
+    @user_rankings = User.ranking
+    @question_rankings = Question.ranking
   end
 end

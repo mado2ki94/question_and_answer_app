@@ -306,6 +306,9 @@ footer {
       margin-right: 20px;
     }
   }
+  .question-link-in-ranking {
+    // font-size: 12px;
+  }
 }
 
 // 質問投稿ページ
@@ -426,14 +429,17 @@ footer {
   }
   .answers {
     .answers-title {
+      margin-top: 80px;
+      margin-bottom: 30px;
       font-size: 20px;
       font-weight: bold;
       padding-left: 30px;
     }
     .answer {
+      border-left: 3px solid #ccc;
       width: 95%;
+      padding: 20px 10px 0;
       margin: auto;
-      padding-top: 20px;
       .answer-info {
         height: 40px;
         p {
@@ -461,6 +467,8 @@ footer {
         }
       }
       .responses {
+        border-left: 2px solid #d2b48c;
+        padding-left: 10px;
         width: 90%;
         margin: auto;
         .response-info {

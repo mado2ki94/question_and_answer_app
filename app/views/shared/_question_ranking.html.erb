@@ -1,0 +1,33 @@
+<div class="ranking">
+  <h2><span class="glyphicon glyphicon-user"></span>　質問ランキング</h2>
+  <% @question_rankings.each_with_index do |question, index| %>
+  <div class="rank_in_user">
+      <div class="rank_number">
+        <% case index %>
+        <% when 0 %>
+          <%= image_tag "q&a_app_gold_user.jpg", size:26, class: "trophy" %>
+        <% when 1 %>
+          <%= image_tag "q&a_app_silver_user.jpg", size:26, class: "trophy" %>
+        <% when 2 %>
+          <%= image_tag "q&a_app_bronze_user.jpg", size:26, class: "trophy" %>
+        <% else %>
+          <%= index + 1 %>
+        <% end %>
+      </div>
+      <% if question.user.avatar? %>
+        <%= image_tag question.user.avatar.url, size: 30 %>
+      <% else %>
+        <%= image_tag "default.jpg", size: 30 %>
+      <% end %>
+
+      <div class="rank_in_user_name">
+        <% if question.title.size >= 20 %>
+          <%= link_to "#{question.title[0,17]}...", question, class: "question-link-in-ranking" %><br>
+        <% else %>
+          <%= link_to question.title, question, class: "question-link-in-ranking" %><br>
+        <% end %>
+      </div>
+      <div class="rank_in_user_liker"><%= question.liker %>いいね</div>
+  </div>
+  <% end %>
+</div>
