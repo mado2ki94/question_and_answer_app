@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :responses, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :likings, through: :likes, source: :answer
+  has_many :favorites, dependent: :destroy
+  has_many :favoritings, through: :favorites, source: :question
   validates :name, presence: true
   attr_accessor :confirmed_at
   mount_uploader :avatar, AvatarUploader
