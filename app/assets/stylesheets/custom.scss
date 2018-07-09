@@ -64,10 +64,9 @@ header {
   line-height: 60px;
   #logo {
     float: left;
-    margin-right: 20px;
   }
   .user-name {
-    margin-left: 30px;
+    margin-left: 50px;
     margin-right: 5px;
     font-size: 18px;
     letter-spacing: 1px;
@@ -439,6 +438,18 @@ footer {
       outline: 0;
     }
   }
+  .create-best-answer-form, .destroy-best-answer-form {
+    margin-left: 30px;
+    width: 250px;
+    display: inline-block;
+  }
+  .destroy-best-answer-btn, .create-best-answer-btn {
+    width: 250px;
+    height: 30px;
+    font-weight: bold;
+    background-color: #ff8c00;
+    border-radius: 20px;
+  }
   .liker-number {
     // font-family: 'Kreon';
     margin-left: 8px;
@@ -487,6 +498,10 @@ footer {
         padding: 10px;
         p {
           font-size: 18px;
+        }
+        .unlike-form, .like-form {
+          width: 120px;
+          display: inline-block;
         }
         .unlike-btn, .like-btn {
           width: 120px;

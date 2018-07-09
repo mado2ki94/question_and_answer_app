@@ -49,7 +49,7 @@
         <div class="answers">
           <p class="answers-title">回答一覧</p>
           <div class="answer">
-            <% @question.answers.each do |answer| %>
+            <% @question.answers.each_with_index do |answer, index| %>
             <!-- 回答内容 -->
               <div class="answer-info">
                 <% unless @user.avatar.nil? %>
@@ -57,7 +57,7 @@
                 <% else %>
                   <%= image_tag "default.jpg", size: 40, class: "avatar-in-answer-info answer-left" %>
                 <% end %>
-                <p><%= answer.user.name %>　<%= time_ago_in_words(answer.created_at) %>前</p>
+                <p>NO.<%= index + 1 %>：<%= answer.user.name %>　<%= time_ago_in_words(answer.created_at) %>前</p>
               </div>
               <div class="answer-content">
                 <p><%= answer.content %></p>
@@ -65,14 +65,29 @@
                   <% if answer.user_id == current_user.id %>
                     <%= link_to "回答を削除する", answer_path(answer), method: :delete, data: { confirm: "削除しますか？" } %>
                   <% elsif current_user.like?(answer) %>
-                    <%= form_for(current_user.likes.find_by(answer_id: answer.id), method: :delete) do |f| %>
+                    <%= form_for(current_user.likes.find_by(answer_id: answer.id), method: :delete, html: { class: "unlike-form" }) do |f| %>
                       <%= hidden_field_tag :answer_id, answer.id %>
                       <%= f.submit 'いいね済み', class: "unlike-btn" %>
                     <% end %>
                   <% else %>
-                    <%= form_for(current_user.likes.build) do |f| %>
+                    <%= form_for(current_user.likes.build, html: { class: "like-form" }) do |f| %>
                       <%= hidden_field_tag :answer_id, answer.id %>
                       <%= f.submit 'いいね', class: "like-btn" %>
+                    <% end %>
+                  <% end %>
+                  <% if current_user.id == @question.user_id %>
+                    <% if @question.best_answer_id == answer.id %>
+                      <%= form_for @question, url: "/best_answers/:id", method: "delete", data: { confirm: "ベストアンサーを取り消しますか？" }, html: { class: "destroy-best-answer-form" } do |f| %>
+                        <%= hidden_field_tag :question_id, @question.id %>
+                        <%= hidden_field_tag :answer_id, answer.id %>
+                        <%= f.submit 'ベストアンサーを取り消す', class: "destroy-best-answer-btn" %>
+                      <% end %>
+                    <% elsif @question.best_answer_id.nil? %>
+                      <%= form_for @question, url: "/best_answers", method: "post", html: { class: "create-best-answer-form" } do |f| %>
+                        <%= hidden_field_tag :question_id, @question.id %>
+                        <%= hidden_field_tag :answer_id, answer.id %>
+                        <%= f.submit 'ベストアンサーに決定する！', class: "create-best-answer-btn" %>
+                      <% end %>
                     <% end %>
                   <% end %>
                 <% end %>

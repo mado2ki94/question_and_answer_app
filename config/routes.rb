@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   match '/close', to: 'resolutions#close', via: 'patch'
   resources :likes, only: [:create, :destroy]
   resources :favorites, only: [:create, :destroy]
+  resources :best_answers, only: [:create, :destroy]
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
