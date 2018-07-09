@@ -1,0 +1,7 @@
+<div class="question-search">
+  <h2><span class="glyphicon glyphicon-search"></span>質問を検索</h2>
+  <%= form_tag questions_path, method: "get" do |f| %>
+    <%= text_field_tag :search, params[:search], class: "question-search-form" %>
+    <%= submit_tag "検索", :name => nil, class: "question-search-btn" %>
+  <% end %>
+</div>

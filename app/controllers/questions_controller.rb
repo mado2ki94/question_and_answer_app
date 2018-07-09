@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   PER = 20
 
   def index
-    @questions = Question.page(params[:page]).per(PER)
+    @questions = Question.page(params[:page]).search(params[:search]).per(PER)
     @user_rankings = User.ranking
     @question_rankings = Question.ranking
   end

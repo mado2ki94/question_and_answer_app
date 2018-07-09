@@ -15,4 +15,9 @@ class Question < ApplicationRecord
   def self.ranking
     self.order('liker DESC').limit(10)
   end
+
+  # 検索機能
+  def self.search(search)
+    search ? self.where(['title LIKE ?', "%#{search}%"]) : self.all
+  end
 end
