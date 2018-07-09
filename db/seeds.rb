@@ -6,12 +6,14 @@ User.create!(name:  "Example User",
 # ユーザーを50人作成
 50.times do |n|
  name  = Faker::Name.name
- email = "example-#{n+1}@railstutorial.org"
+ email = "example-#{n + 1}@railstutorial.org"
  password = "password"
- User.create!(name:  name,
+ avatar = "#{Rails.root}/app/assets/images/avatar0#{n % 6 + 1}.jpg"
+ user = User.create!(name:  name,
               email: email,
               password:              password,
-              password_confirmation: password)
+              password_confirmation: password,
+              avatar: File.open(avatar))
 end
 
 # 全てのユーザーが一つずつ質問を投稿
@@ -30,12 +32,12 @@ users.each do |user|
   user.answers.create(content: content, user_id: user.id, question_id: question_id)
 end
 
-全てのユーザーがランダムに三つの回答にいいね
+# 全てのユーザーがランダムに20の回答にいいね
 users = User.all
-3.times do
+20.times do
  users.each do |user|
    answer_id = rand(1..51)
-   answer = Answer.find_by(answer_id: answer_id)
+   answer = Answer.find_by(id: answer_id)
    user.like(answer)
  end
 end
