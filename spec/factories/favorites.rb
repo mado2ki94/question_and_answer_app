@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :favorite do
-    user nil
-    question nil
+    association :user
+    association :question
   end
 end

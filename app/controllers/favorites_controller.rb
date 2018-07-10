@@ -14,7 +14,7 @@ class FavoritesController < ApplicationController
   def destroy
     question = Question.find_by(id: params[:question_id])
     current_user.unfavorite(question)
-    flash[:notice] = "いいねを取り消しました。"
+    flash[:notice] = "この質問へのいいねを取り消しました。"
     respond_to do |format|
       format.html { redirect_to question }
       format.js
