@@ -50,27 +50,27 @@
           <p class="answers-title">回答一覧</p>
           <div class="answer">
             <% @question.answers.each_with_index do |answer, index| %>
-            <!-- 回答内容 -->
-            <div class="answer-info-wrapper clearfix">
-              <div class="answer-info-left">
-                <% unless @user.avatar.nil? %>
-                  <%= image_tag answer.user.avatar.url, size: 40, class: "avatar-in-answer-info answer-left" %>
-                <% else %>
-                  <%= image_tag "default.jpg", size: 40, class: "avatar-in-answer-info answer-left" %>
-                <% end %>
-                <p>NO.<%= index + 1 %>：<%= link_to answer.user.name, answer.user %>　<%= time_ago_in_words(answer.created_at) %>前</p>
+              <!-- 回答内容 -->
+              <div class="answer-info-wrapper clearfix">
+                <div class="answer-info-left">
+                  <% unless @user.avatar.nil? %>
+                    <%= image_tag answer.user.avatar.url, size: 40, class: "avatar-in-answer-info answer-left" %>
+                  <% else %>
+                    <%= image_tag "default.jpg", size: 40, class: "avatar-in-answer-info answer-left" %>
+                  <% end %>
+                  <p>NO.<%= index + 1 %>：<%= link_to answer.user.name, answer.user %>　<%= time_ago_in_words(answer.created_at) %>前</p>
+                </div>
+                <div class="answer-info-right">
+                  <% if answer.id == @question.best_answer_id %>
+                    <%= image_tag "best_answer.png", size: 50 %>
+                  <% end %>
+                </div>
               </div>
-              <div class="answer-info-right">
-                <% if answer.id == @question.best_answer_id %>
-                  <%= image_tag "best_answer.png", size: 50 %>
-                <% end %>
-              </div>
-            </div>
               <div class="answer-content">
                 <p><%= answer.content %></p>
                 <% if user_signed_in? %>
                   <% if answer.user_id == current_user.id %>
-                    <%= link_to "回答を削除する", answer_path(answer), method: :delete, data: { confirm: "削除しますか？" } %>
+                    <%= link_to "回答を削除する", answer_path(answer), method: :delete, data: { confirm: "削除しますか？" }, class: "btn" %>
                   <% elsif current_user.like?(answer) %>
                     <%= form_for(current_user.likes.find_by(answer_id: answer.id), method: :delete, html: { class: "unlike-form" }) do |f| %>
                       <%= hidden_field_tag :answer_id, answer.id %>
@@ -82,7 +82,7 @@
                       <%= f.submit 'いいね', class: "like-btn" %>
                     <% end %>
                   <% end %>
-                  <% if current_user.id == @question.user_id %>
+                  <% if current_user.id == @question.user_id && @question.resolution == 0 %>
                     <% if @question.best_answer_id == answer.id %>
                       <%= form_for @question, url: "/best_answers/:id", method: "delete", data: { confirm: "ベストアンサーを取り消しますか？" }, html: { class: "destroy-best-answer-form" } do |f| %>
                         <%= hidden_field_tag :question_id, @question.id %>
@@ -113,22 +113,24 @@
                   <div class="response-content">
                     <p><%= response.content %></p>
                     <% if user_signed_in? && response.user_id == current_user.id %>
-                      <%= link_to "返信を削除する", response_path(response), method: :delete, data: { confirm: "削除しますか？" } %>
+                      <%= link_to "返信を削除する", response_path(response), method: :delete, data: { confirm: "削除しますか？" }, class: "btn" %>
                     <% end %>
                   </div>
                 <% end %>
                 <!-- 返信フォーム -->
-                <div class="response-form">
-                  <% if user_signed_in? && @question.resolution == 0 %>
-                    <%= form_for @response do |f| %>
-                      <%= f.hidden_field :user_id, value: current_user.id %>
-                      <%= f.hidden_field :question_id, value: @question.id %>
-                      <%= f.hidden_field :answer_id, value: answer.id %>
-                      <%= f.text_area :content, class: "response-form response-content-form", autocomplete: "off", placeholder: "返信" %><br>
-                      <%= f.submit "返信する", class: "response-submit-btn" %>
+                <% if current_user == @question.user || current_user == answer.user %>
+                  <div class="response-form">
+                    <% if user_signed_in? && @question.resolution == 0 %>
+                      <%= form_for @response do |f| %>
+                        <%= f.hidden_field :user_id, value: current_user.id %>
+                        <%= f.hidden_field :question_id, value: @question.id %>
+                        <%= f.hidden_field :answer_id, value: answer.id %>
+                        <%= f.text_area :content, class: "response-form response-content-form", autocomplete: "off", placeholder: "返信" %><br>
+                        <%= f.submit "返信する", class: "response-submit-btn" %>
+                      <% end %>
                     <% end %>
-                  <% end %>
-                </div>
+                  </div>
+                <% end %>
               </div>
             <% end %>
           </div>
@@ -136,6 +138,7 @@
         <!-- 回答フォーム -->
         <% unless @user == current_user %>
           <div class="answer-form">
+            <h4 class="answer-form-title"><%= @question.user.name %>さんの質問に回答しよう！</h4>
             <% if user_signed_in? && @question.resolution == 0 %>
               <%= form_for @answer do |f| %>
                 <%= f.hidden_field :question_id, value: @question.id %>
