@@ -16,27 +16,34 @@ User.create!(name:  "Example User",
               avatar: File.open(avatar))
 end
 
-# 全てのユーザーが一つずつ質問を投稿
-users = User.all
-users.each do |user|
-  title   = Faker::Lorem.sentence(6)
-  content = Faker::Lorem.sentence(50)
-  user.questions.create!(title: title ,content: content, resolution: 0)
+# 全てのユーザーが３つずつ質問を投稿
+5.times do
+  users = User.all
+  users.each do |user|
+    title   = Faker::Lorem.sentence(6)
+    content = Faker::Lorem.sentence(50)
+    user.questions.create!(title: title ,content: content, resolution: 0)
+  end
 end
 
-# 全てのユーザーがランダムに一つの質問に回答
-users = User.all
-users.each do |user|
-  content = Faker::Lorem.sentence(30)
-  question_id = rand(1..51)
-  user.answers.create(content: content, user_id: user.id, question_id: question_id)
+# 全てのユーザーがランダムに３つの質問に回答
+3.times do
+  users = User.all
+  users.each do |user|
+    content = Faker::Lorem.sentence(30)
+    question_id = rand(1..151)
+    user.answers.create(content: content, user_id: user.id, question_id: question_id)
+  end
 end
 
-# 全てのユーザーがランダムに20の回答にいいね
+# 全てのユーザーがランダムに30の質問と回答にいいね
 users = User.all
 20.times do
  users.each do |user|
-   answer_id = rand(1..51)
+   question_id = rand(1..151)
+   question = Question.find_by(id: question_id)
+   user.favorite(question)
+   answer_id = rand(1..151)
    answer = Answer.find_by(id: answer_id)
    user.like(answer)
  end
