@@ -481,7 +481,8 @@ footer {
       width: 95%;
       padding: 20px 10px 0;
       margin: auto;
-      .answer-info {
+      .answer-info-left {
+        float: left;
         height: 40px;
         p {
           line-height: 40px;
@@ -493,6 +494,10 @@ footer {
         .answer-left {
           float: left;
         }
+      }
+      .answer-info-right {
+        float: right;
+        margin-right: 40px;
       }
       .answer-content {
         padding: 10px;

@@ -51,14 +51,21 @@
           <div class="answer">
             <% @question.answers.each_with_index do |answer, index| %>
             <!-- 回答内容 -->
-              <div class="answer-info">
+            <div class="answer-info-wrapper clearfix">
+              <div class="answer-info-left">
                 <% unless @user.avatar.nil? %>
                   <%= image_tag answer.user.avatar.url, size: 40, class: "avatar-in-answer-info answer-left" %>
                 <% else %>
                   <%= image_tag "default.jpg", size: 40, class: "avatar-in-answer-info answer-left" %>
                 <% end %>
-                <p>NO.<%= index + 1 %>：<%= answer.user.name %>　<%= time_ago_in_words(answer.created_at) %>前</p>
+                <p>NO.<%= index + 1 %>：<%= link_to answer.user.name, answer.user %>　<%= time_ago_in_words(answer.created_at) %>前</p>
               </div>
+              <div class="answer-info-right">
+                <% if answer.id == @question.best_answer_id %>
+                  <%= image_tag "best_answer.png", size: 50 %>
+                <% end %>
+              </div>
+            </div>
               <div class="answer-content">
                 <p><%= answer.content %></p>
                 <% if user_signed_in? %>
