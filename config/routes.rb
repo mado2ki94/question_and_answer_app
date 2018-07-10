@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   get 'users/show'
   devise_for :users, module: :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'static_pages#home'
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    member do
+      get :likes
+    end
+  end
   resources :questions
   resources :answers, only: [:create, :destroy]
   resources :responses, only: [:create, :destroy]

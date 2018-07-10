@@ -1,4 +1,4 @@
-<% provide :title, "マイページ" %>
+<% provide :title, "マイページ-いいね一覧-" %>
 <div class="my-page">
   <div class="col-md-3 my-page-left">
     <% unless @user.avatar.nil?%>
@@ -16,7 +16,8 @@
   <div class="col-md-9 my-page-right">
     <div class="my-questions">
       <div class="my-questions-title">
-        <h4>　<span class="glyphicon glyphicon-align-left">　<%= @user.name %>さんの質問一覧</h4>
+        <h4 class="my-questions-active">　<span class="glyphicon glyphicon-align-left">　投稿した質問一覧</h4>
+        <h4>　　　<%= link_to "いいねした質問", likes_user_path %></h4>
       </div>
       <% @questions.each do |question| %>
         <div class="my-question">

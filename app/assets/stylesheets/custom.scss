@@ -14,6 +14,8 @@ body {
   background-color: #f8faf7;
 }
 
+
+
 .btn {
   background-color: #ff8c00;
   height: 30px;
@@ -889,8 +891,23 @@ footer {
       min-height: 500px;
       background-color: white;
       padding: 20px;
-      .questions-title {
-         padding: 16px;
+      .my-questions-title {
+         h4 {
+           display: inline-block;
+           width: 250px;
+           margin:0 10px;
+         }
+         a {
+           color: black;
+         }
+         .my-questions-active {
+           height: 40px;
+           padding-top: 10px;
+           border-radius: 4px 4px 0 0;
+           border-top: 2px solid #ccc;
+           border-left: 2px solid #ccc;
+           border-right: 2px solid #ccc;
+         }
        }
       .my-question {
         height: 83px;
@@ -947,4 +964,14 @@ footer {
       color:DarkSlateGray;
       background-color:#ff8c00;
       border-color:#ff8c00;
+}
+
+.alert {
+  background-color: #ed6d35;
+  color: #fff;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin: 0;
+  padding-left: 100px;
+  border-radius: 0px;
 }
