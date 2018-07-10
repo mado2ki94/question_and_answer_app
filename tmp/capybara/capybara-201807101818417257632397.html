@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test-title</title>
+    
+
+
+<link rel="stylesheet" media="all" href="/assets/application-706c7ad73f64f14fbe78a748fbb257f72c586b5bc0e380485599f71920728d9b.css" data-turbolinks-track="reload" />
+<script src="/assets/application-ae632635d2bb4b76b35e95a083794cfaf3ecb47242d54774f8704529c3b1198e.js" data-turbolinks-track="reload"></script>
+<link href="https://fonts.googleapis.com/css?family=Kreon:400,700" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/assets/favicon-cd87030dfeb75b7f64b7d316fd95e2c504ae3598a0b73018d82469fd7fa8825e.ico" />
+
+  </head>
+
+  <body>
+    <header class="navbar navbar-fixed-top">
+  <div class="container">
+    <a id="logo" href="/"><img height="60" id="logo" src="/assets/Fiita_logo-1dc96aed1eec6cd41f96891846523b5d374db7a22bbd5a294e10abbc8b48d589.png" /></a>
+      <span class="user-name">example_name</span>様
+    <ul class="nav navbar-nav navber-right">
+        <li><a href="/questions/new">質問する</a></li>
+        <li><a href="/questions">回答する</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            アカウント <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-menu-list"><a class="dropdown-link" href="/users/1">マイページ</a></li>
+            <li class="dropdown-menu-list"><a class="dropdown-link" href="/users/edit">登録情報変更</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-menu-list"><a class="dropdown-link" rel="nofollow" data-method="delete" href="/users/sign_out">ログアウト</a></li>
+          </ul>
+        </li>
+    </ul>
+  </div>
+</header>
+
+        <div class="alert alert-notice">ベストアンサーを決定しました。解決した場合は回答を締め切ってください。</div>
+
+    <div class="main">
+  <div class="row">
+    <div class="col-md-8">
+      <!-- 質問内容 -->
+      <div class="question-info">
+        <h1>
+            <img class="avatar-in-question-info" src="/assets/default-742f316cefd828db5aca744b773ba516cf618e9cff70ef7ccee3881c94489e5e.jpg" width="40" height="40" />
+          <p class="user-name-in-questions-show"><a href="/users/1">example_name</a></p>
+          <p class="posted-time-in-questions-show">1分前</p><br>
+          <p class="question-title-in-questions-show">test-title</p>
+        </h1>
+          <p class="question-acceptance-state">（この質問は回答を受付中です。）</p>
+        <!-- 質問へのいいね -->
+            <form class="new_favorite" id="new_favorite" action="/favorites" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+              <input type="hidden" name="question_id" id="question_id" value="1" />
+              <button name="button" type="submit" class="favorite-btn">
+                <span class="glyphicon glyphicon-heart-empty"><span class="liker-number">0</span>
+</button></form>        <p class="question-content-in-questions-show">how many do you training in a week?</p>
+            <p class="question-close-link"><a data-confirm="質問を締め切りますか？" rel="nofollow" data-method="patch" href="/close.1?question_id=1">締め切る</a></p>
+            <p class="question-edit-link"><a href="/questions/1/edit">編集</a></p>
+          <p class="question-delete-link"><a data-confirm="削除しますか？" rel="nofollow" data-method="delete" href="/questions/1">削除</a></p>
+        <!-- 回答一覧 -->
+        <div class="answers">
+          <p class="answers-title">回答一覧</p>
+          <div class="answer">
+              <!-- 回答内容 -->
+              <div class="answer-info-wrapper clearfix">
+                <div class="answer-info-left">
+                    <img class="avatar-in-answer-info answer-left" src="/assets/default-742f316cefd828db5aca744b773ba516cf618e9cff70ef7ccee3881c94489e5e.jpg" width="40" height="40" />
+                  <p>NO.1：<a href="/users/2">example_name</a>　1分前</p>
+                </div>
+                <div class="answer-info-right">
+                    <img src="/assets/best_answer-d9e8a60bfa1d2428118ca1402a8fd3df055fe7cdbbe8b647e150177e9d12bccd.png" width="50" height="50" />
+                </div>
+              </div>
+              <div class="answer-content">
+                <p>Test answer</p>
+                    <form class="like-form" id="new_like" action="/likes" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+                      <input type="hidden" name="answer_id" id="answer_id" value="1" />
+                      <input type="submit" name="commit" value="いいね" class="like-btn" data-disable-with="いいね" />
+</form>                      <form class="destroy-best-answer-form" id="edit_question_1" data-confirm="ベストアンサーを取り消しますか？" action="/best_answers/:id" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="delete" />
+                        <input type="hidden" name="question_id" id="question_id" value="1" />
+                        <input type="hidden" name="answer_id" id="answer_id" value="1" />
+                        <input type="submit" name="commit" value="ベストアンサーを取り消す" class="destroy-best-answer-btn" data-disable-with="ベストアンサーを取り消す" />
+</form>              </div>
+              <!-- 返信内容 -->
+              <div class="responses">
+                <!-- 返信フォーム -->
+                  <div class="response-form">
+                      <form class="new_response" id="new_response" action="/responses" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+                        <input value="1" type="hidden" name="response[user_id]" id="response_user_id" />
+                        <input value="1" type="hidden" name="response[question_id]" id="response_question_id" />
+                        <input value="1" type="hidden" name="response[answer_id]" id="response_answer_id" />
+                        <textarea class="response-form response-content-form" autocomplete="off" placeholder="返信" name="response[content]" id="response_content">
+</textarea><br>
+                        <input type="submit" name="commit" value="返信する" class="response-submit-btn" data-disable-with="返信する" />
+</form>                  </div>
+              </div>
+          </div>
+        </div>
+        <!-- 回答フォーム -->
+      </div>
+    </div>
+    <!-- ランキング -->
+    <div class="col-md-4">
+      <div class="question-search">
+  <h2><span class="glyphicon glyphicon-search"></span>質問を検索</h2>
+  <form action="/questions" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+    <input type="text" name="search" id="search" class="question-search-form" />
+    <input type="submit" value="検索" class="question-search-btn" data-disable-with="検索" />
+</form></div>
+
+      <div class="user_ranking">
+  <h2><span class="glyphicon glyphicon-user"></span>　ユーザーランキング</h2>
+  <div class="rank_in_user">
+      <div class="rank_number">
+          <img class="trophy" src="/assets/q&amp;a_app_gold_user-5969b01df5a1cd795445e335f8505253d25703ac3baecf001c3c09122591faab.jpg" width="26" height="26" />
+      </div>
+        <img src="/assets/default-742f316cefd828db5aca744b773ba516cf618e9cff70ef7ccee3881c94489e5e.jpg" width="30" height="30" />
+      <div class="rank_in_user_name"><a href="/users/2">example_name</a></div>
+      <div class="rank_in_user_liker">1いいね</div>
+  </div>
+  <div class="rank_in_user">
+      <div class="rank_number">
+          <img class="trophy" src="/assets/q&amp;a_app_silver_user-e40be5ce2c80fa4c2e090a5458dd2ff4ef04ae74f3f3c2b2318f9745881c77e4.jpg" width="26" height="26" />
+      </div>
+        <img src="/assets/default-742f316cefd828db5aca744b773ba516cf618e9cff70ef7ccee3881c94489e5e.jpg" width="30" height="30" />
+      <div class="rank_in_user_name"><a href="/users/1">example_name</a></div>
+      <div class="rank_in_user_liker">0いいね</div>
+  </div>
+</div>
+
+      <div class="question_ranking">
+  <h2><span class="glyphicon glyphicon-user"></span>　質問ランキング</h2>
+  <div class="rank_in_user">
+      <div class="rank_number">
+          <img class="trophy" src="/assets/q&amp;a_app_gold_user-5969b01df5a1cd795445e335f8505253d25703ac3baecf001c3c09122591faab.jpg" width="26" height="26" />
+      </div>
+        <img src="/assets/default-742f316cefd828db5aca744b773ba516cf618e9cff70ef7ccee3881c94489e5e.jpg" width="30" height="30" />
+
+      <div class="rank_in_user_name">
+          <a class="question-link-in-ranking" href="/questions/1">test-title</a><br>
+      </div>
+      <div class="rank_in_user_liker">0いいね</div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+    <footer class="footer">
+  Copyright © 2018 Fiita All Rights Reserved.
+</footer>
+
+    
+  </body>
+</html>
