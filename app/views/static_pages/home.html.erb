@@ -8,14 +8,6 @@
 <div class="main">
   <div class="row">
     <div class="col-md-8 col-sm-12">
-      <!-- ホットトピック -->
-      <!-- <a href="/questions/5" class="topic-question clearfix">
-        <%= image_tag "hot_topic.png", alt: "トピック", class: "topic-image" %>
-        <div class="topic-content">
-          <h3 class="topic-title">現在回答受付中</h3>
-          <p class="topic-text">Example Userさんの<br>質問に回答しよう！</p>
-        </div>
-      </a> -->
       <div class="questions">
         <div class="questions-title questions-title-in-home">
           <h4>　<span class="glyphicon glyphicon-align-left">　最新の質問一覧</h4>
@@ -23,16 +15,24 @@
         <% @questions.each do |question| %>
         <div class="question question-in-home">
           <% if question.user.avatar.nil? %>
-            <%= image_tag "default.jpg", size: 50, class: "avatar-in-question-info question-left" %>
+            <%= link_to "users/#{question.user.id}" do %>
+              <%= image_tag "default.jpg", size: 50, class: "avatar-in-question-info question-left" %>
+            <% end %>
           <% else %>
-            <%= image_tag question.user.avatar.url, size: 50, class: "avatar-in-question-info question-left" %>
+            <%= link_to "users/#{question.user.id}" do %>
+              <%= image_tag question.user.avatar.url, size: 50, class: "avatar-in-question-info question-left" %>
+            <% end %>
           <% end %>
           <% if question.title.size >= 33 %>
             <%= link_to "#{question.title[0,31]}...", question, class: "question-link" %><br>
           <% else %>
             <%= link_to question.title, question, class: "question-link" %><br>
           <% end %>
-          <p>by_<%= question.user.name %></p>
+          <p>by_
+            <%= link_to "users/#{question.user.id}" do %>
+              <%= question.user.name %>
+            <% end %>
+          </p>
           <%= time_ago_in_words(question.created_at) %>前
         </div>
         <% end %>

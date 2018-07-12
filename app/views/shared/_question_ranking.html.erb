@@ -15,9 +15,13 @@
         <% end %>
       </div>
       <% if question.user.avatar? %>
-        <%= image_tag question.user.avatar.url, size: 30 %>
+        <%= link_to "users/#{question.user.id}" do %>
+          <%= image_tag question.user.avatar.url, size: 30 %>
+        <% end %>
       <% else %>
-        <%= image_tag "default.jpg", size: 30 %>
+        <%= link_to "users/#{question.user.id}" do %>
+          <%= image_tag "default.jpg", size: 30 %>
+        <% end %>
       <% end %>
       <div class="rank_in_user_name">
         <% if question.title.size >= 15 %>

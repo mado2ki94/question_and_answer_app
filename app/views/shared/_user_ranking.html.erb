@@ -15,9 +15,13 @@
         <% end %>
       </div>
       <% if user.avatar? %>
-        <%= image_tag user.avatar.url, size: 30 %>
+        <%= link_to "users/#{user.id}" do %>
+          <%= image_tag user.avatar.url, size: 30 %>
+        <% end %>
       <% else %>
-        <%= image_tag "default.jpg", size: 30 %>
+        <%= link_to "users/#{user.id}" do %>
+          <%= image_tag "default.jpg", size: 30 %>
+        <% end %>
       <% end %>
       <div class="rank_in_user_name"><%= link_to user.name, user %></div>
       <div class="rank_in_user_liker"><%= user.liker %>いいね</div>
