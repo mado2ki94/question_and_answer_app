@@ -2,11 +2,11 @@
   <div class="container">
     <%= link_to image_tag("Fiita_logo.png", height: 60,id: "logo"), root_path, id: "logo" %>
     <% if user_signed_in? %>
-      <span class="user-name"><%= current_user.name %></span>様
+      <span class="user-name"><%= current_user.name %>様</span>
     <% end %>
-    <ul class="nav navbar-nav navber-right">
-      <% if user_signed_in? %>
-        <li><%= link_to "質問する", "/questions/new" %></li>
+    <% if user_signed_in? %>
+      <ul class="nav navbar-nav navber-right navbar-logged-in">
+        <li><%= link_to "質問する", "/questions/new", class: "new-link-for-rspec" %></li>
         <li><%= link_to "回答する", "/questions" %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -19,10 +19,22 @@
             <li class="dropdown-menu-list"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-link" %></li>
           </ul>
         </li>
-      <% else %>
-        <li><%= link_to "新規登録", "/users/sign_up" %></li>
+        <span class="user-name-in-device show-in-device"><%= current_user.name %>様</span>
+      </div>
+    <% else %>
+      <ul class="nav navbar-nav navber-right navbar-guest">
+        <li><%= link_to "新規登録", "/users/sign_up", class: "users-signup-btn" %></li>
         <li><%= link_to "ログイン", "/users/sign_in" %></li>
-      <% end %>
-    </ul>
+      </div>
+    <% end %>
   </div>
+  <% if user_signed_in? %>
+    <div class="account-menu">
+      <%= link_to "質問する", "/questions/new", class: "account-link account-link1" %>
+      <%= link_to "回答する", "/questions", class: "account-link account-link2" %>
+      <%= link_to "マイページ", current_user, class: "account-link account-link3" %>
+      <%= link_to "登録情報変更", "/users/edit", class: "account-link account-link4" %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "account-link account-link5" %>
+    </div>
+  <% end %>
 </header>

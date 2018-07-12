@@ -9,7 +9,7 @@ RSpec.feature "Questions", type: :feature do
     sign_in_as user
 
     expect {
-      click_link "質問する"
+      find(".new-link-for-rspec").click
       fill_in "タイトル", with: "Test question"
       fill_in "本文", with: "Test content"
       click_button "投稿する"

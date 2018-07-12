@@ -1,7 +1,7 @@
 <% provide :title, "#{@question.title}" %>
 <div class="main">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-8 col-sm-12">
       <!-- 質問内容 -->
       <div class="question-info">
         <h1>
@@ -152,7 +152,7 @@
       </div>
     </div>
     <!-- ランキング -->
-    <div class="col-md-4">
+    <div class="col-md-4 col-sm-12">
       <%= render 'shared/question_search' %>
       <%= render 'shared/user_ranking' %>
       <%= render 'shared/question_ranking' %>

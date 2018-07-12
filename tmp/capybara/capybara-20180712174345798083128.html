@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fiita</title>
+    
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+<link rel="stylesheet" media="all" href="/assets/application-6347533a4e23b0449e4b7cc39707aa0c42eea3c16ca10f43bcd0ba00fc2a9643.css" data-turbolinks-track="reload" />
+<script src="/assets/application-ae632635d2bb4b76b35e95a083794cfaf3ecb47242d54774f8704529c3b1198e.js" data-turbolinks-track="reload"></script>
+<link href="https://fonts.googleapis.com/css?family=Kreon:400,700" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/assets/favicon-cd87030dfeb75b7f64b7d316fd95e2c504ae3598a0b73018d82469fd7fa8825e.ico" />
+
+  </head>
+
+  <body>
+    <header class="navbar navbar-fixed-top">
+  <div class="container">
+    <a id="logo" href="/"><img height="60" id="logo" src="/assets/Fiita_logo-1dc96aed1eec6cd41f96891846523b5d374db7a22bbd5a294e10abbc8b48d589.png" /></a>
+      <span class="user-name">example_name様</span>
+      <ul class="nav navbar-nav navber-right navbar-logged-in">
+        <li><a href="/questions/new">質問する</a></li>
+        <li><a href="/questions">回答する</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            アカウント <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-menu-list"><a class="dropdown-link" href="/users/1">マイページ</a></li>
+            <li class="dropdown-menu-list"><a class="dropdown-link" href="/users/edit">登録情報変更</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-menu-list"><a class="dropdown-link" rel="nofollow" data-method="delete" href="/users/sign_out">ログアウト</a></li>
+          </ul>
+        </li>
+        <span class="user-name-in-device show-in-device">example_name様</span>
+      </div>
+  </div>
+    <div class="account-menu">
+      <a class="account-link account-link1" href="/questions/new">質問する</a>
+      <a class="account-link account-link2" href="/questions">回答する</a>
+      <a class="account-link account-link3" href="/users/1">マイページ</a>
+      <a class="account-link account-link4" href="/users/edit">登録情報変更</a>
+      <a class="account-link account-link5" rel="nofollow" data-method="delete" href="/users/sign_out">ログアウト</a>
+    </div>
+</header>
+
+        <div class="alert alert-notice">ログインしました。</div>
+
+    <div class="main">
+  <div class="row">
+    <div class="col-md-8 col-sm-12">
+      <!-- ホットトピック -->
+      <!-- <a href="/questions/5" class="topic-question clearfix">
+        <img alt="トピック" class="topic-image" src="/assets/hot_topic-d93e352dc8477430cefeac4dfcf26fb20a75496996cf5d97a00964bdf68d26d3.png" />
+        <div class="topic-content">
+          <h3 class="topic-title">現在回答受付中</h3>
+          <p class="topic-text">Example Userさんの<br>質問に回答しよう！</p>
+        </div>
+      </a> -->
+      <div class="questions">
+        <div class="questions-title questions-title-in-home">
+          <h4>　<span class="glyphicon glyphicon-align-left">　最新の質問一覧</h4>
+        </div>
+        
+      </div>
+    </div>
+    <div class="col-md-4  col-sm-12">
+      <div class="question-search">
+  <h2><span class="glyphicon glyphicon-search"></span>質問を検索</h2>
+  <form action="/questions" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+    <input type="text" name="search" id="search" class="question-search-form" />
+    <input type="submit" value="検索" class="question-search-btn" data-disable-with="検索" />
+</form></div>
+
+      <div class="user_ranking">
+  <h2><span class="glyphicon glyphicon-user"></span>　ユーザーランキング</h2>
+  <div class="rank_in_user">
+      <div class="rank_number">
+          <img class="trophy" src="/assets/q&amp;a_app_gold_user-5969b01df5a1cd795445e335f8505253d25703ac3baecf001c3c09122591faab.jpg" width="26" height="26" />
+      </div>
+        <img src="/assets/default-742f316cefd828db5aca744b773ba516cf618e9cff70ef7ccee3881c94489e5e.jpg" width="30" height="30" />
+      <div class="rank_in_user_name"><a href="/users/1">example_name</a></div>
+      <div class="rank_in_user_liker">0いいね</div>
+  </div>
+</div>
+
+      <div class="question_ranking">
+  <h2><span class="glyphicon glyphicon-user"></span>　質問ランキング</h2>
+</div>
+
+    </div>
+  </div>
+</div>
+
+    <footer class="footer">
+  Copyright © 2018 Fiita All Rights Reserved.
+</footer>
+
+    
+  </body>
+</html>

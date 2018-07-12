@@ -20,8 +20,8 @@
         <%= image_tag "default.jpg", size: 30 %>
       <% end %>
       <div class="rank_in_user_name">
-        <% if question.title.size >= 20 %>
-          <%= link_to "#{question.title[0,17]}...", question, class: "question-link-in-ranking" %><br>
+        <% if question.title.size >= 15 %>
+          <%= link_to "#{question.title[0,13]}...", question, class: "question-link-in-ranking" %><br>
         <% else %>
           <%= link_to question.title, question, class: "question-link-in-ranking" %><br>
         <% end %>

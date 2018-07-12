@@ -15,7 +15,7 @@
 
       <div class="field users-edit-avatar-form">
         <%= f.label :avatar, "プロフィール画像" %>
-        <%= f.file_field :avatar %>
+        <%= f.file_field :avatar, class: "user_avatar" %>
         <%= f.hidden_field :avatar_cache %>
       </div>
 
@@ -29,7 +29,10 @@
       <% end %>
 
       <div class="field">
-        <%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i>
+        <%= f.label :password %>
+        <span class="show-in-device"><br></span>
+        <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i>
+        <span class="show-in-device"><br></span>
         <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em><br />
         <%= f.password_field :password, autocomplete: "off", class: "users-edit-form" %>
         <% if @minimum_password_length %>
@@ -42,7 +45,7 @@
       </div>
 
       <div class="field">
-        <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
+        <%= f.label :current_password %> <span class="show-in-device"><br></span><i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
         <%= f.password_field :current_password, autocomplete: "off", class: "users-edit-form" %>
       </div>
 
@@ -52,8 +55,8 @@
     <% end %>
 
     <h3><%= t('.cancel_my_account') %></h3>
-    ※一度削除したアカウントは元に戻せませんのでご注意ください。
-    <p><%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete, class: "users-edit-btn" %></p>
+    ※一度削除したアカウントは元に<span class="show-in-device"><br>　</span>戻せませんのでご注意ください。
+    <p><%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete, class: "users-edit-btn users-delete-btn" %></p>
 
     <%= link_to t('devise.shared.links.back'), :back %>
   </div>
