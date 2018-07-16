@@ -17,9 +17,7 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   # 開発環境でメール認証を避ける（本番環境ではコメントアウトする）
-  # def active_for_authentication?
-  #   true
-  # end
+
 
   # 回答へのいいね
   def like(answer)
