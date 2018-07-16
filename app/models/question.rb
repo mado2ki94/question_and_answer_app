@@ -13,7 +13,7 @@ class Question < ApplicationRecord
 
   # like数の上位10を抽出
   def self.ranking
-    self.order('liker DESC').limit(10)
+    self.reorder('liker DESC').limit(10)
   end
 
   # 検索機能
